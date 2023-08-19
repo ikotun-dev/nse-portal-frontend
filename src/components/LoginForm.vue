@@ -6,7 +6,7 @@
         
       <div class="bg-white p-2">
         <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-96 pt-14 border border-orange-900">
-          <label class="font-serif text-2xl mb-2 text-orange-400">NSE-Member Login</label>
+          <label class="font-serif text-2xl mb-2 text-green-800">NSE-Member Login</label>
           <h3 class="text-red-800 font-pop" v-show="wrongCrendentials">Wrong Credentials!</h3>
           <div
           class="h-8 lg:w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-950 ring-1 ring-green-800 mt-2"
