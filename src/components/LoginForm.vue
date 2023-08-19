@@ -1,12 +1,12 @@
 <template>
     <div class="flex-col" :src="require('../assets/images/slider4.jpg')">
         <div class="bg-image min-h-200 flex justify-center items-center">   
-     
-    <div class="flex justify-center pt-3 lg:pt-12 pb-72 " >
+    <SignupForm v-show="showSignup" @showLoginForm="showSignUp" ></SignupForm>
+    <div class="flex justify-center pt-3 lg:pt-12 pb-72 " v-show="showLogin">
         
       <div class="bg-white p-2">
         <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-96 pt-14 border border-orange-900">
-          <label class="font-serif text-2xl mb-2 text-orange-700">Member Login</label>
+          <label class="font-serif text-2xl mb-2 text-orange-700">NSE-Member Login</label>
           <div
           class="h-8 lg:w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-950 ring-1 ring-green-800 mt-2"
           >
@@ -36,18 +36,6 @@
               @click="togglePasswordVisibility"
             ></i>
           </div>
-  
-          <div v-show="showPasswordReq" class="text-xs bg-white border rounded-sm py-2 px-2 mt-1">
-            <small class="form-text text-gray-500">Password requirements:</small>
-            <ul class="list-disc pl-5 mt-2">
-              <li :class="{ 'text-green-500': has_minimum_length }">At least 8 characters</li>
-              <li :class="{ 'text-green-500': has_lowercase }">One lowercase letter</li>
-              <li :class="{ 'text-green-500': has_uppercase }">One uppercase letter</li>
-              <li :class="{ 'text-green-500': has_number }">One number</li>
-              <li :class="{ 'text-green-500': has_special }">One special character</li>
-            </ul>
-          </div>
-  
           <button
             class="font-pop border py-2 px-16 text-sm rounded-sm bg-green-500 text-white mt-4 hover:bg-white hover:border hover:border-green-900 hover:text-green-600 rounded-e-full rounded-s-full"
             @click="login"
@@ -65,15 +53,23 @@
   </template>
   
   <script>
+  import SignupForm from './SignupForm.vue';
+
   export default {
     name: "App",
+    components : {
+      SignupForm
+    },
+
     data() {
       return {
         showPassword: "fas fa-eye",
         inputType: "password",
         username: "",
         password: "",
-        showPasswordReq: false
+        showPasswordReq: false,
+        showSignup: false,
+        showLogin: true
       };
     },
     computed: {
@@ -101,6 +97,7 @@
       },
       showSignUp() {
         this.showSignup = !this.showSignup;
+        this.showLogin = !this.showLogin
       },
       login() {
         if (this.username === "collins" && this.password === "Collins2005") {
