@@ -6,13 +6,14 @@
         
       <div class="bg-white p-2">
         <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-96 pt-14 border border-orange-900">
-          <label class="font-serif text-2xl mb-2 text-orange-700">NSE-Member Login</label>
+          <label class="font-serif text-2xl mb-2 text-orange-400">NSE-Member Login</label>
+          <h3 class="text-red-800 font-pop" v-show="wrongCrendentials">Wrong Credentials!</h3>
           <div
           class="h-8 lg:w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-950 ring-1 ring-green-800 mt-2"
           >
             <input
               class="px-2 py-2 h-8 lg:w-64 w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-800 ring-1 ring-green-400 "
-              type="text"
+               type="text"
               placeholder="username :"
               v-model="username"
               required
@@ -69,7 +70,8 @@
         password: "",
         showPasswordReq: false,
         showSignup: false,
-        showLogin: true
+        showLogin: true,
+        wrongCrendentials: false,
       };
     },
     computed: {
@@ -100,8 +102,13 @@
         this.showLogin = !this.showLogin
       },
       login() {
+
         if (this.username === "collins" && this.password === "Collins2005") {
-          this.$router.push("/sidepane");
+          this.$router.push("/update-profile");
+        }
+        else {
+            this.wrongCrendentials = true
+
         }
       }
     }
