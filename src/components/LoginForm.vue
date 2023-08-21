@@ -108,7 +108,7 @@
         };
         console.log(login_data)
         try  {
-            const response =  await axios.post('https://lp-backend-production.up.railway.app/login', login_data, {
+            const response =  await axios.post('http://127.0.0.1:8000/api/login', login_data, {
   headers: {
     'Content-Type': 'application/json' // Adjust if needed
   }
