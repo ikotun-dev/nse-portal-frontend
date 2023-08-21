@@ -25,6 +25,7 @@
     
 </template>
 <script>
+import axios from 'axios'
 import TopHeader from './TopHeader.vue';
 import BaseHeader from './BaseHeader.vue';
 import SideBar from './SideBar.vue';
@@ -38,6 +39,25 @@ export default {
         EngineerDisplay,
 
        // ProfileForm
-    }
+    },
+    data() { 
+      return{
+        engineers : []
+      };
+    },
+    created() { 
+      this.fetchEngineers(); 
+    },
+    methods : { 
+      async fetchEngineers() { 
+        try{
+        const response = axios.get('http://127.0.0.1:8000/api/all-engineers')
+        this.engineers = (await response).data;
+      }
+      catch(error) { 
+        console.log('error', error)
+      }
+    }}
+
 }
 </script> 
