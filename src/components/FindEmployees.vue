@@ -9,7 +9,14 @@
         <SideBar/>
         <!-- You can place the sidebar content here -->
       </div>
-      <div class="flex-1 p-4 mr-4 relative">
+      <div class="flex flex-wrap items-center  ">
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
+        <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
         <EngineerDisplay/><EngineerDisplay/><EngineerDisplay/>
       
       </div>
