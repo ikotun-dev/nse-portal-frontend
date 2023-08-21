@@ -9,7 +9,7 @@
         <SideBar/>
         <!-- You can place the sidebar content here -->
       </div>
-      <div class="flex-1 p-4 mr-4">
+      <div class="flex-1 p-4 mr-4 relative">
         <!-- Complete profile form -->
         <form @submit.prevent="submitForm">
         <div class="mb-4">

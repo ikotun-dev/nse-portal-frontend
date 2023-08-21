@@ -55,7 +55,7 @@
   
   <script>
   import SignupForm from './SignupForm.vue';
-
+  import axios from 'axios'
   export default {
     name: "App",
     components : {
@@ -101,14 +101,34 @@
         this.showSignup = !this.showSignup;
         this.showLogin = !this.showLogin
       },
-      login() {
-
-        if (this.username === "collins" && this.password === "Collins2005") {
-          this.$router.push("/update-profile");
+      async login() {
+        const login_data = { 
+            username : this.username,
+            password : this.password,
+        };
+        console.log(login_data)
+        try  {
+            const response =  await axios.post('https://lp-backend-production.up.railway.app/login', login_data, {
+  headers: {
+    'Content-Type': 'application/json' // Adjust if needed
+  }
+})
+            if (response.status === 200){ 
+                this.$router.push('/update-profile')
+            } else {
+                alert("An error occurred")
+            }
         }
-        else {
-            this.wrongCrendentials = true
-
+        catch(error) {
+            if (error.response && error.response.status === 422) {
+    // Handle validation errors
+    console.log('Validation Errors:', error.response.data);
+    // For example, display the error messages to the user
+    this.validationErrors = error.response.data.errors;
+  } else {
+    // Handle other errors
+    console.error('Error:', error);
+  }
         }
       }
     }

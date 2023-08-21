@@ -4,10 +4,16 @@
 
       </div>
       <ul class="">
-        <li class="mb-2 py-2 hover:bg-green-700 text-center">
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold">
+          <router-link to="/dashboard">Find Employee</router-link>
+        </li>
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold ">
+          <router-link to="/dashboard">Mentorship</router-link>
+        </li>
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold ">
           <router-link to="/dashboard">Dashboard</router-link>
         </li>
-        <li class="mb-2 py-2 hover:bg-green-700 text-center">
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold ">
           <router-link to="/settings">Settings</router-link>
         </li>
         <!-- Add other links here -->
