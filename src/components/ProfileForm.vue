@@ -1,5 +1,9 @@
 <template>
-
+    <div class="flex">
+      <div class="w-1/4 bg-gray-200 p-4">
+        <!-- Sidebar content -->
+        <!-- You can place the sidebar content here -->
+      </div>
       <div class="flex-1 p-4">
         <!-- Complete profile form -->
         <form @submit.prevent="submitForm">
@@ -24,7 +28,7 @@
           <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm">Submit</button>
         </form>
       </div>
-
+    </div>
   </template>
   
   <script>

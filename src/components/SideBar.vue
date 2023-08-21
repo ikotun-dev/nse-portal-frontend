@@ -5,7 +5,7 @@
       </div>
       <ul class="">
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold">
-          <router-link to="/dashboard">Find Employee</router-link>
+          <router-link to="/find-employees">Find Employee</router-link>
         </li>
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold ">
           <router-link to="/dashboard">Mentorship</router-link>
