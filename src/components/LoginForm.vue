@@ -81,20 +81,31 @@ export default {
     });
 
     if (response.status === 200) {
-      // Check the response data before accessing it
-      if (response.status === 200) {
-        const token = response.data.token;
-        localStorage.setItem('token', token);
-        if (response.data.data.fullname != '') { 
+        if(response.data.data.fullname === ''){
+          console.log("if block")
+          this.$router.push('/update-profile')
+        }
+        else { 
+          console.log('else block')
           this.$router.push('/find-employees')
         }
-        else{
-        this.$router.push('/update-profile');
-        }
-      } else {
-        this.wrongCredentials = true;
-        alert("Invalid credentials");
-      }
+      // // Check the response data before accessing it
+      // if (response.status === 200) {
+        
+      //   const token = response.data.token;
+      //   localStorage.setItem('token', token);
+      //   console.log(response.data.data.fullname)
+      //   if (response.data.data.fullname != '') { 
+      //     console.log('fullname', response.data.data.fullname)
+      //     this.$router.push('/find-employees')
+      //   }
+      //   else{
+      //   this.$router.push('/update-profile');
+      //   }
+      // } else {
+      //   this.wrongCredentials = true;
+      //   alert("Invalid credentials");
+      // }
     }
     else {
       console.log('Response with unexpected status:', response);

@@ -30,14 +30,14 @@
       </ul>
     </nav>
           <SideBar/></div>
-      <div class="bg-gray-200 lg:block" :class="{ 'hidden': !isMenuOpen }">
+      <div class="bg-gray-200 lg:block md:block" :class="{ 'hidden': !isMenuOpen }">
         <!-- Sidebar content -->
         <SideBar/>
       </div>
       <div class="flex flex-col">
         <div class="flex items-center mt-4 ml-6">
         <button @click="openMenu" >
-      <i class="fas fa-box mr-4 block lg:hidden"></i>
+      <i class="fas fa-box mr-4 block md:hidden lg:hidden"></i>
         </button>
         <input
           v-model="searchQuery"
