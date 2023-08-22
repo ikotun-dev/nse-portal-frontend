@@ -43,6 +43,7 @@
 import TopHeader from './TopHeader.vue';
 import BaseHeader from './BaseHeader.vue';
 import SideBar from './SideBar.vue';
+import axios from 'axios';
 //import ProfileForm from './ProfileForm'
 export default { 
     components :  {
@@ -70,6 +71,16 @@ export default {
         formData.append('resume', this.uploadResume); // Append the resume file
         formData.append('executive_post', this.executivePost);
         formData.append('profile_image', this.uploadResume); // Append the profile image file
+
+        try  {
+          const token = localStorage.getItem('token');
+          const response = await axios.put('http://127.0.0.1:8000/api/update-profile', formData,  { headers : { 'Content-Type' : 'multipart/formData','Authorization' : `Bearer ${token}`}})
+          if (response.status === 200){
+            console.log("testing")
+          }
+        }catch(error) { 
+          console.log(error)
+        }
        }
      }
 }
