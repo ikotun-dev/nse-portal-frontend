@@ -37,8 +37,6 @@
         </form>
       </div>
     </div>
-  
-    
 </template>
 <script>
 import TopHeader from './TopHeader.vue';

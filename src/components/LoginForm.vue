@@ -83,6 +83,8 @@ export default {
     if (response.status === 200) {
       // Check the response data before accessing it
       if (response.status === 200) {
+        const token = response.data.token;
+        localStorage.setItem('token', token);
         this.$router.push('/update-profile');
       } else {
         this.wrongCredentials = true;
