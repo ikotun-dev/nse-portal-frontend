@@ -34,7 +34,7 @@
           <label class="block mb-2 font-semibold">Profile Image:</label>
           <input type="file" @change="uploadProfileImage" class="w-full p-2 mb-4 border rounded-sm" />
   
-          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm">Submit</button>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm" @click="completeProfile">Submit</button>
         </form>
       </div>
     </div>
@@ -62,7 +62,7 @@ export default {
         uploadProfileImage: '',
       }
     },
-    method : { 
+    methods : { 
        async completeProfile()  { 
         const formData = new FormData();
         formData.append('fullname', this.fullName);
