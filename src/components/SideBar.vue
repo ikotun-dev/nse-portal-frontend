@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-green-800 text-white h-screen lg:w-64 md:w-48 hidden lg:block md:block">
+    <nav class="bg-green-800 text-white h-screen lg:w-64 md:w-48 lg:blovk md:blobk" :class="{ 'hidden': !isMenuOpen, 'lg:block md:block': !isMenuOpen }">
       <div class="flex items-center justify-center h-16 ">
 
       </div>
@@ -23,7 +23,13 @@
   
   <script>
   export default {
-    name: 'SideBar'
+    name: 'SideBar',
+    data() { 
+      return {
+        isMenuOpen : false
+      }
+
+    }
   };
   </script>
   

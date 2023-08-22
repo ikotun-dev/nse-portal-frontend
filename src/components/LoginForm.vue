@@ -85,7 +85,12 @@ export default {
       if (response.status === 200) {
         const token = response.data.token;
         localStorage.setItem('token', token);
+        if (response.data.data.fullname != '') { 
+          this.$router.push('/find-employees')
+        }
+        else{
         this.$router.push('/update-profile');
+        }
       } else {
         this.wrongCredentials = true;
         alert("Invalid credentials");

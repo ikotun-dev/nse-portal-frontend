@@ -6,7 +6,8 @@
     <div class="flex">
       <div class="w-1/7 bg-gray-200 ">
         <!-- Sidebar content -->
-        <SideBar/>
+        <div class="lg:block">        <SideBar/></div>
+        
         <!-- You can place the sidebar content here -->
       </div>
       <div class="flex-1 p-4 mr-4 relative">
@@ -49,6 +50,27 @@ export default {
         BaseHeader,
         SideBar,
        // ProfileForm
-    }
+    },
+    data() { 
+      return { 
+        fullName : '',
+        engineeringField : '',
+        yearsOfExperience : '',
+        uploadResume : '',
+        executivePost : '',
+        uploadProfileImage: '',
+      }
+    },
+    method : { 
+       async completeProfile()  { 
+        const formData = new FormData();
+        formData.append('fullname', this.fullName);
+        formData.append('engineering_field', this.engineeringField);
+        formData.append('experience_years', this.yearsOfExperience);
+        formData.append('resume', this.uploadResume); // Append the resume file
+        formData.append('executive_post', this.executivePost);
+        formData.append('profile_image', this.uploadResume); // Append the profile image file
+       }
+     }
 }
 </script> 

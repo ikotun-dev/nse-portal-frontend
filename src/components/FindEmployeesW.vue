@@ -1,9 +1,9 @@
 <template>
-    <TopHeader>
-    </TopHeader>
-    <BaseHeader>
-    </BaseHeader>
-    <div class="flex">
+  <TopHeader>
+  </TopHeader>
+  <BaseHeader>
+  </BaseHeader>
+  <div class="relative flex">
       <div
         class="fixed flex inset-0 bg-black bg-opacity-50 transition-opacity"
         :class="{ 'hidden': !isMenuOpen }"
@@ -34,8 +34,9 @@
         <!-- Sidebar content -->
         <SideBar/>
       </div>
-      <div class="flex flex-col">
-        <div class="flex items-center mt-4 ml-6">
+      
+    <div class="flex flex-col">
+      <div class="flex items-center mt-4 ml-6">
         <button @click="openMenu" >
       <i class="fas fa-box mr-4 block lg:hidden"></i>
         </button>
@@ -49,74 +50,64 @@
           search
         </button>
       </div>
-        <div
-        class="lg:px-2 sm:px-2 lg:py-1 py-2 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-4 ml-2 shadow-5xl ">
+      <div
+        class="lg:px-2 sm:px-2 lg:py-1 py-2 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-4 ml-2 shadow-5xl " v-show="!isMenuOpen">
         <div class="flex flex-wrap">
-        <EngineerDisplay v-for="engineer in engineers" :key="engineer.id" :engr="engineer"/>
-      </div>
+          <EngineerDisplay v-for="engineer in engineers" :key="engineer.id" :engr="engineer"/>
+        </div>
       </div>
     </div>
-    </div>
+  </div>
 </template>
+
 <script>
-import axios from 'axios'
 import TopHeader from './TopHeader.vue';
 import BaseHeader from './BaseHeader.vue';
 import SideBar from './SideBar.vue';
-import EngineerDisplay from './EngineerDisplay.vue'
+import EngineerDisplay from './EngineerDisplay.vue';
 
-//import ProfileForm from './ProfileForm'
-export default { 
-    components :  {
-        TopHeader,
-        BaseHeader,
-        SideBar,
-        EngineerDisplay,
-       // ProfileForm
-    },
-    data() { 
-      return{
-        engineers : [],
-        searchQuery : '',
-        isMenuOpen : false,
+export default {
+  components: {
+    TopHeader,
+    BaseHeader,
+    SideBar,
+    EngineerDisplay
+  },
+  data() {
+    return {
+      engineers: [], // Placeholder for fetched engineers
+      searchQuery: '',
+      isMenuOpen: false // New data property for toggling the sidebar
+    };
+  },
+  computed: {
+    sidebarClass() {
+      return {
+        'w-1/7': true, // Default width for larger screens
+        'hidden': !this.isMenuOpen, // Hide sidebar on mobile when not open
+        'fixed inset-0': this.isMenuOpen // Fullscreen on mobile when open
       };
-    },
-    methods : { 
-      openMenu() { 
+    }
+  },
+  methods: {
+    openMenu() { 
   console.log("Toggle button clicked");
   this.isMenuOpen = !this.isMenuOpen; // Toggle the value
   console.log("isMenuOpen:", this.isMenuOpen);
 },
-      async fetchEngineers() { 
-        try{
-        const token = localStorage.getItem('token');
-        const response = await axios.get('http://127.0.0.1:8000/api/all-engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
-        
-        this.engineers =  response.data.data;
-        // this.engineers = response.data;
-        console.log('Engineers Data:', this.engineers);
-        console.log(response.data.data)
-      }
-      catch(error) { 
-        console.log('error', error)
-      }
-    },
-    async searchEngineers() { 
-  try { 
-    const token = localStorage.getItem('token');
-    const response = await axios.get(`http://127.0.0.1:8000/api/all-engineers`, {
-      headers: { 'Authorization': `Bearer ${token}` },
-      params: { search: this.searchQuery }
-    });
-    this.engineers = response.data.data;
-  } catch(error) { 
-    console.log(error);
-  }
-},},
-    mounted() { 
-      this.fetchEngineers(); 
-      this.searchEngineers();
-    },
-}
-</script> 
 
+    async fetchEngineers() {
+  
+    },
+    async searchEngineers() {
+     
+    },
+    toggleSidebar() {
+      this.isMenuOpen = true;
+    }
+  },
+  mounted() {
+    this.fetchEngineers();
+  }
+};
+</script>
