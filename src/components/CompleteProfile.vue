@@ -26,13 +26,13 @@
           <input v-model="yearsOfExperience" type="number" class="w-full p-2 mb-4 border rounded-sm" />
   
           <label class="block mb-2 font-semibold">Resume:</label>
-          <input type="file" @change="uploadResume" class="w-full p-2 mb-4 border rounded-sm" />
+          <input type="file" ref="resumeInput" @change="handleuploadResume" class="w-full p-2 mb-4 border rounded-sm" />
   
           <label class="block mb-2 font-semibold">Executive Post:</label>
           <input v-model="executivePost" class="w-full p-2 mb-4 border rounded-sm" />
   
           <label class="block mb-2 font-semibold">Profile Image:</label>
-          <input type="file" @change="uploadProfileImage" class="w-full p-2 mb-4 border rounded-sm" />
+          <input type="file" ref="profileImageInput" @change="handleUploadProfileImage" class="w-full p-2 mb-4 border rounded-sm" />
   
           <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm" @click="completeProfile">Submit</button>
         </form>
@@ -57,20 +57,27 @@ export default {
         fullName : '',
         engineeringField : '',
         yearsOfExperience : '',
-        uploadResume : '',
+        resume : null,
         executivePost : '',
-        uploadProfileImage: '',
+        profileImage: null,
       }
     },
     methods : { 
+
+        handleUploadProfileImage() { 
+          this.profileImage = this.$refs.profileImageInput.files[0]
+        },      
+        handleuploadResume() {
+        this.resume = this.$refs.resumeInput.files[0];
+    },
        async completeProfile()  { 
         const formData = new FormData();
         formData.append('fullname', this.fullName);
         formData.append('engineering_field', this.engineeringField);
         formData.append('experience_years', this.yearsOfExperience);
-        formData.append('resume', this.uploadResume); // Append the resume file
+        formData.append('resume', this.resume); // Append the resume file
         formData.append('executive_post', this.executivePost);
-        formData.append('profile_image', this.uploadResume); // Append the profile image file
+        formData.append('profile_image', this.profileImage); // Append the profile image file
 
         try  {
           const token = localStorage.getItem('token');

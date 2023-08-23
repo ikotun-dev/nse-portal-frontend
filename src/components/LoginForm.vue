@@ -81,11 +81,15 @@ export default {
     });
 
     if (response.status === 200) {
+          const token = response.data.token;
+          localStorage.setItem('token', token)
         if(response.data.data.fullname === ''){
+         
           console.log("if block")
           this.$router.push('/update-profile')
         }
         else { 
+          
           console.log('else block')
           this.$router.push('/find-employees')
         }
