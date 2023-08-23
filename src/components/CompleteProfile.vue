@@ -36,10 +36,13 @@
           <div class="py-2 px-2 bg-green-200 border border-green-900 mt-3 mb-4 ml-4 rounded-lg" v-show="updateSucess">
             <h4 class="text-green-950 text-center text-md">Profile updated succesfully</h4>
           </div>
+          <div v-show="submitClick">
+            <h4 class="text-green-600 mb-4 ml-4 font-bold">Loading...</h4>
+          </div>
           <div class="py-2 px-2 bg-red-200 border border-red-900 mt-3 mb-4 ml-4 rounded-lg" v-show="updateFailure">
             <h4 class="text-red-950 text-center text-md">an error occured, please retry</h4>
           </div>
-          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm" @click="completeProfile">Submit</button>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm" @click="completeProfile(); submitHandler()"  >Submit</button>
        
         </form>
       </div>
@@ -68,10 +71,13 @@ export default {
         profileImage: null,
         updateSucess : false,
         updateFailure : false,
+        submitClick : false,
       }
     },
     methods : { 
-
+        submitHandler() { 
+          this.submitClick = !this.submitClick
+        },
         handleUploadProfileImage() { 
           this.profileImage = this.$refs.profileImageInput.files[0]
         },      
@@ -89,9 +95,10 @@ export default {
 
         try  {
           const token = localStorage.getItem('token');
-          const response = await axios.put('http://127.0.0.1:8000/api/update-profile', formData,  { headers : { 'Content-Type' : 'multipart/formData','Authorization' : `Bearer ${token}`}})
+          const response = await axios.put('https://nse-backend-production.up.railway.app/api/update-profile', formData,  { headers : { 'Content-Type' : 'multipart/formData','Authorization' : `Bearer ${token}`}})
           if (response.status === 200){
             this.updateSucess = true,
+            this.submitClick = false,
             console.log("testing")
             // set timer 3 seconds 
             // then
