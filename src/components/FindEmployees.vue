@@ -90,7 +90,7 @@ console.log("isMenuOpen:", this.isMenuOpen);
     async fetchEngineers() { 
       try{
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://127.0.0.1:8000/api/engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
+      const response = await axios.get('https://nse-backend-production.up.railway.app/api/engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
       
       this.engineers =  response.data.data;
       // this.engineers = response.data;
@@ -104,7 +104,7 @@ console.log("isMenuOpen:", this.isMenuOpen);
   async searchEngineers() { 
 try { 
   const token = localStorage.getItem('token');
-  const response = await axios.get(`http://127.0.0.1:8000/api/all-engineers`, {
+  const response = await axios.get(`https://nse-backend-production.up.railway.app/api/all-engineers`, {
     headers: { 'Authorization': `Bearer ${token}` },
     params: { search: this.searchQuery }
   });

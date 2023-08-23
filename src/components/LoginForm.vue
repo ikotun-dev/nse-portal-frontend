@@ -74,7 +74,7 @@ export default {
   };
 
   try {
-    const response = await axios.post('http://127.0.0.1:8000/api/login', login_data, {
+    const response = await axios.post('https://nse-backend-production.up.railway.app/api/login', login_data, {
       headers: {
         'Content-Type': 'application/json' // Adjust if needed
       }

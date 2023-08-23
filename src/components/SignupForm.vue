@@ -100,7 +100,7 @@ export default {
 
           };
           try {
-          const response = await axios.post('http://127.0.0.1:8000/api/signup', SignupData)
+          const response = await axios.post('https://nse-backend-production.up.railway.app/api/signup', SignupData)
           if(response.status === 200) {
             this.successSignup = true
           }
