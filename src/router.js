@@ -6,7 +6,7 @@ import SideBar  from './components/SideBar'
 import ProfileForm from './components/ProfileForm'
 import EngineerDisplay from './components/EngineerDisplay'
 import FindEmployees from './components/FindEmployees'
-
+import EngineerProfile from './components/EngineerProfile'
 const routes = [ 
     {'path' : '/', component: HomePage},
     {'path' : '/login', component: LoginForm},
@@ -14,7 +14,8 @@ const routes = [
     {'path' : '/sidebar', component : SideBar},
     {'path' : '/formprofile', component : ProfileForm},
     {'path' : '/engdisplay', component : EngineerDisplay},
-    {'path' : '/find-employees', component : FindEmployees}
+    {'path' : '/find-employees', component : FindEmployees},
+    {'path' : '/engineer/:id', component  : EngineerProfile}
 
 ]
 

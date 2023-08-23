@@ -83,7 +83,7 @@ export default {
     if (response.status === 200) {
           const token = response.data.token;
           localStorage.setItem('token', token)
-        if(response.data.data.fullname === ''){
+        if(response.data.data.fullname === '' || response.data.data.fullname == null){
          
           console.log("if block")
           this.$router.push('/update-profile')

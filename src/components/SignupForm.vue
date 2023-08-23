@@ -96,6 +96,7 @@ export default {
             'username' : this.username,
             'email' : this.email,
             'password' : this.password,
+            'fullname' : '',
 
           };
           try {

@@ -5,7 +5,7 @@
   </BaseHeader>
   <div class="flex">
     <div
-      class="fixed flex inset-0 bg-black bg-opacity-50 transition-opacity"
+      class="fixed flex inset-0 bg-black bg-opacity-90 transition-opacity"
       :class="{ 'hidden': !isMenuOpen }"
       @click="openMenu"
     >
@@ -51,7 +51,7 @@
     </div>
       <div
       class="lg:px-2 sm:px-2 lg:py-1 py-2 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-4 ml-2 shadow-5xl ">
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap" :class="{'hidden' : isMenuOpen}">
       <EngineerDisplay v-for="engineer in engineers" :key="engineer.id" :engr="engineer"/>
     </div>
     </div>
