@@ -49,9 +49,13 @@
         search
       </button>
     </div>
-      <div
+    <div v-if="isLoading" class="flex items-center justify-center mt-4">
+      <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12"></div>
+     
+    </div>
+        <div v-else
       class="lg:px-2 sm:px-2 lg:py-1 py-2 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-4 ml-2 shadow-5xl ">
-      <div class="flex flex-wrap" :class="{'hidden': isMenuOpen}">
+      <div class="flex flex-wrap " :class="{'hidden': isMenuOpen}">
   <router-link v-for="engineer in engineers" :key="engineer.id" :to="`/engineer/${engineer.id}`" class="cursor-pointer">
     <EngineerDisplay :engr="engineer" />
   </router-link>
@@ -81,27 +85,46 @@ export default {
       engineers : [],
       searchQuery : '',
       isMenuOpen : false,
+      isLoading : true,
     };
   },
+  created() {
+    const engineersDataString = localStorage.getItem('engineersData');
+if (engineersDataString) {
+  const engineersData = JSON.parse(engineersDataString);
+  console.log(engineersData)
+  // Now "engineersData" is an object containing your data
+} else {
+  console.log(engineersDataString)
+  // Handle case when data is not in local storage
+}
+this.searchEngineers();
+},
   methods : { 
+
+    loading() { 
+        
+    },
     openMenu() { 
 console.log("Toggle button clicked");
 this.isMenuOpen = !this.isMenuOpen; // Toggle the value
 console.log("isMenuOpen:", this.isMenuOpen);
 },
     async fetchEngineers() { 
-      try{
-      const token = localStorage.getItem('token');
-      const response = await axios.get('https://nse-backend-production.up.railway.app/api/engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
-      
-      this.engineers =  response.data.data;
-      // this.engineers = response.data;
-      console.log('Engineers Data:', this.engineers);
-      console.log(response.data.data)
-    }
-    catch(error) { 
-      console.log('error', error)
-    }
+      try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get('https://nse-backend-production.up.railway.app/api/engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
+  
+    this.engineers =  await response.data.data;
+    localStorage.setItem('engineersData', JSON.stringify(response.data.data)); // Store in localStorage
+    // this.engineers = response.data;
+    console.log('Engineers Data:', this.engineers);
+    console.log(response.data.data);
+  } catch (error) { 
+    console.log('error', error)
+    }finally{
+  this.isLoading=false;
+}
   },
   async searchEngineers() { 
 try { 
@@ -114,11 +137,10 @@ try {
   console.log(this.engineers)
 } catch(error) { 
   console.log(error);
+}finally{
+  this.isLoading=false;
 }
 },},
-  mounted() { 
-    this.fetchEngineers(); 
-    this.searchEngineers();
-  },
+
 }
 </script> 

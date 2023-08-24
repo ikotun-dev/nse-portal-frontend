@@ -7,6 +7,7 @@ import ProfileForm from './components/ProfileForm'
 import EngineerDisplay from './components/EngineerDisplay'
 import FindEmployees from './components/FindEmployees'
 import EngineerProfile from './components/EngineerProfile'
+//import { createStore } from "vuex";
 const routes = [ 
     {'path' : '/', component: HomePage},
     {'path' : '/login', component: LoginForm},
@@ -18,7 +19,12 @@ const routes = [
     {'path' : '/engineer/:id', component  : EngineerProfile, props : true}
 
 ]
+/*
+const store = createStore({
+    state(){
 
+    }
+})*/
 const router = createRouter({
     history : createWebHistory(), routes
 })
