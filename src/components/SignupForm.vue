@@ -4,10 +4,10 @@
         <div class="bg-white p-2">
           <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-96 pt-14 border border-orange-900">
             <label class="font-serif text-2xl mb-2 text-green-800">NSE-Member Signup</label>
-            <h3 class="text-green-800 font-pop" v-show="successSignup">Signup success</h3>
-            <h3 class="text-green-800 font-pop" v-show="successSignup">an administrator would confirm your credentials</h3>
-            <h3 class="text-green-800 font-pop" v-show="successSignup">Login access would be granted</h3>
-            <h3 class="text-green-800 font-pop" v-show="failedSignup">Credentials already used</h3>
+            <h3 class="text-green-800 font-pop text-sm" v-show="successSignup">Signup success</h3>
+            <h3 class="text-green-800 font-pop text-sm" v-show="successSignup">an administrator would confirm your credentials</h3>
+            <h3 class="text-green-800 font-pop text-sm" v-show="successSignup">Login access would be granted</h3>
+            <h3 class="text-green-800 font-pop text-sm" v-show="failedSignup">Credentials already used</h3>
             <div
             class="h-8 lg:w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-950 ring-1 ring-green-800 mt-2"
             >

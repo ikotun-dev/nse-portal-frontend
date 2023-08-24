@@ -15,7 +15,7 @@ const routes = [
     {'path' : '/formprofile', component : ProfileForm},
     {'path' : '/engdisplay', component : EngineerDisplay},
     {'path' : '/find-employees', component : FindEmployees},
-    {'path' : '/engineer/:id', component  : EngineerProfile}
+    {'path' : '/engineer/:id', component  : EngineerProfile, props : true}
 
 ]
 

@@ -51,9 +51,11 @@
     </div>
       <div
       class="lg:px-2 sm:px-2 lg:py-1 py-2 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-4 ml-2 shadow-5xl ">
-      <div class="flex flex-wrap" :class="{'hidden' : isMenuOpen}">
-      <EngineerDisplay v-for="engineer in engineers" :key="engineer.id" :engr="engineer"/>
-    </div>
+      <div class="flex flex-wrap" :class="{'hidden': isMenuOpen}">
+  <router-link v-for="engineer in engineers" :key="engineer.id" :to="`/engineer/${engineer.id}`" class="cursor-pointer">
+    <EngineerDisplay :engr="engineer" />
+  </router-link>
+</div>
     </div>
   </div>
   </div>
@@ -109,6 +111,7 @@ try {
     params: { search: this.searchQuery }
   });
   this.engineers = response.data.data;
+  console.log(this.engineers)
 } catch(error) { 
   console.log(error);
 }
