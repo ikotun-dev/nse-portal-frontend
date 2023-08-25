@@ -7,6 +7,7 @@ import ProfileForm from './components/ProfileForm'
 import EngineerDisplay from './components/EngineerDisplay'
 import FindEmployees from './components/FindEmployees'
 import EngineerProfile from './components/EngineerProfile'
+import MyProfile from './components/MyProfile'
 //import { createStore } from "vuex";
 const routes = [ 
     {'path' : '/', component: HomePage},
@@ -16,7 +17,8 @@ const routes = [
     {'path' : '/formprofile', component : ProfileForm},
     {'path' : '/engdisplay', component : EngineerDisplay},
     {'path' : '/find-employees', component : FindEmployees},
-    {'path' : '/engineer/:id', component  : EngineerProfile, props : true}
+    {'path' : '/engineer/:id', component  : EngineerProfile, props : true},
+    {'path' : '/profile/:id', component : MyProfile, props : true}
 
 ]
 /*

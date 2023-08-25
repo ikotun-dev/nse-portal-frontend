@@ -10,7 +10,8 @@ module.exports = {
 
       fontFamily :{
 		'pop' : ['Poppins', 'sans-serif'],
-    'philosopher' : ['Philosopher', 'sans-serif']
+    'philosopher' : ['Philosopher', 'sans-serif'],
+    montserrat: ['Montserrat', 'sans-serif'],
 	},
   fontWeight: {
     bold: '600', // Add the bold variant

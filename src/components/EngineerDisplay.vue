@@ -7,9 +7,14 @@
  
     </div>
         <div>
-            <h3  class="mt-1  font-bold "> Engr. {{ engr.fullname }}</h3>
-            <h4  class="  text-sm ">{{ engr.engineering_field}}</h4>
-            <h6  class="  text-sm">{{ engr.executive_post}}</h6>
+            <div class="flex items-center ">
+                <h3  class="mt-1  font-montserrat font-extrabold "> Engr. {{ engr.fullname }}</h3>
+            <i class="mt-1 ml-1 fa-solid fa-certificate fa-shake text-orange-700"></i>
+
+            </div>
+            
+            <h4  class=" font-montserrat text-sm font-light ">{{ engr.engineering_field}}</h4>
+            <h6  class="font-montserrat font-bold  text-sm">{{ engr.executive_post}}</h6>
             
         </div>
     </div>

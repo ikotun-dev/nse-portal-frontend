@@ -3,7 +3,7 @@
     <!-- <BaseHeader></BaseHeader> -->
     <div class="bg-gray-100">
     <div class="ml-4 flex mt-2 items-center">
-    <router-link to="/find-employees" class="text-4xl mr-2 font-bold text-green-900">
+    <router-link to="/find-employees" class="text-3xl mr-2 font-bold text-green-900">
       &leftarrow;
     </router-link>
   </div>
@@ -25,26 +25,60 @@
         <div class="py-4 flex justify-center">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
-            Engr. {{profileData.fullname}}
+            Engr. Ikotun Adewale
             </h2><b></b>
         </div>
         </div>
 
-        <div class="py-1 flex justify-center">
-         <div class="flex items-center"> 
-         <h2 class="font-montserrat font-extrabold text-green-950 ">
-            9040342342
+        <div class="
+         py-4 flex justify-center ">
+         <div class="flex justify-center"> 
+         <h2  class="font-pop text-green-950 ml-9">
+            {{profileData.executive_post}}
             </h2><b></b>
         </div>
         </div>
 
-       
+        <div class="
+         py-4 flex justify-center ">
+         <div class="flex justify-center items-center"> 
+         <h2  class="font-montserrat font-bold text-green-950">
+            08057543423
+           </h2>
+        </div>
+        </div>
+
+        <div class="
+         py-4 flex justify-center ">
+         <div class="flex justify-center items-center"> 
+         <h2  class="font-montserrat font-bold text-green-950">
+            adewaleikotun88@yahoo.UK
+           </h2>
+        </div>
+        </div>
+        <div class="
+         py-2 flex justify-center ">
+         <div class="flex justify-center items-center"> 
+         <h2  class="font-montserrat font-bold text-green-950">
+            Annual-dues
+            </h2><div class="ml-2 w-20 bg-green-700 py-1 px-1 border rounded-lg"><h2 class="text-center font-montserrat font-extrabold text-white text-xs">settled</h2></div>
+        </div>
+        </div>
+        <div class="
+         py-2 flex justify-center ">
+         <div class="flex justify-center items-center"> 
+         <h2  class="font-montserrat font-bold text-green-950">
+            verified
+            </h2><div class="ml-10 w-20 bg-green-700 py-1 px-1 border rounded-lg"><h2 class="text-center font-montserrat font-extrabold text-white text-xs">yes</h2></div>
+        </div>
+        </div>
+
         <div class="
          py-4 flex justify-center ">
          <div class="flex justify-center"> 
         
     
-         <h2 class="font-montserrat font-extrabold  text-green-800">
+         <h2 class="font-pop  text-green-950">
             {{profileData.engineering_field}}
             </h2><b></b>
         </div>
@@ -56,9 +90,13 @@
         
             <div class="bg-green-400 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
                 <a :href="profileData.resume" target="_blank" class="bg-green-400 ml-2 px-2 rounded-md inline-block">
-        <h2 class="font-pop-bold mt-1 font-bold text-xs text-green-950 hover:text-green-200 inline-block mb-1">view CV</h2>
+        <h2 class="font-montserrat mt-1 font-extrabold text-xs text-green-950 hover:text-green-200 inline-block mb-1">view CV</h2>
       </a>
             </div>
+            
+
+            
+        
         </div>
         
         </div>
@@ -66,7 +104,7 @@
         
         <div class="bg-orange-600 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
             <a :href="profileData.resume" target="_blank" class="bg-orange-600 ml-2 px-2 rounded-md inline-block">
-    <h2 class="font-pop-bold mt-1 font-bold text-xs text-orange-950 hover:text-orange-200 inline-block mb-1">send email</h2>
+    <h2 class="font-montserrat mt-1 font-extrabold text-xs text-orange-950 hover:text-orange-200 inline-block mb-1">send email</h2>
   </a>
         </div>
         
@@ -88,7 +126,7 @@ export default{
     props : ['id'],
     components : {
         TopHeader,
-       //BaseHeader
+  //      BaseHeader
     },
     data() { 
         return { 

@@ -4,17 +4,17 @@
 
       </div>
       <ul class="">
-        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold">
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
           <router-link to="/find-employees">Find Employee</router-link>
         </li>
-        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold ">
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
           <router-link to="/dashboard">Mentorship</router-link>
         </li>
-        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold">
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
           <router-link to="/dashboard">Dashboard</router-link>
         </li>
-        <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold">
-          <router-link to="/settings">Settings</router-link>
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
+          <router-link to="/settings">My Profile</router-link>
         </li>
         <!-- Add other links here -->
       </ul>

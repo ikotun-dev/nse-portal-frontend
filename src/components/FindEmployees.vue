@@ -14,18 +14,20 @@
 
     </div>
     <ul class="">
-      <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold">
+      <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
         <router-link to="/find-employees">Find Employee</router-link>
       </li>
-      <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold font-bold ">
+      <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
         <router-link to="/dashboard">Mentorship</router-link>
       </li>
-      <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold ">
+      <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
         <router-link to="/dashboard">Dashboard</router-link>
       </li>
-      <li class="mb-2 py-2 hover:bg-green-700 text-center font-pop-bold ">
-        <router-link to="/settings">Settings</router-link>
+      <router-link to="/profile/:5">
+      <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
+        My Profile
       </li>
+      </router-link>
       <!-- Add other links here -->
     </ul>
   </nav>
