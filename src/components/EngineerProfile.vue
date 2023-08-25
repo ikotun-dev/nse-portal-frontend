@@ -25,7 +25,7 @@
         <div class="py-4 flex justify-center">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
-            Engr. {{profileData.fullname}}
+            {{profileData.fullname}}
             </h2><b></b>
         </div>
         </div>
@@ -33,7 +33,14 @@
         <div class="py-1 flex justify-center">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
-            9040342342
+           {{profileData.phone_number}}
+            </h2><b></b>
+        </div>
+        </div>
+        <div class="py-1 flex justify-center">
+         <div class="flex items-center"> 
+         <h2 class="font-montserrat font-extrabold text-green-950 ">
+           {{profileData.email}}
             </h2><b></b>
         </div>
         </div>

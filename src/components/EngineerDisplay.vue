@@ -8,8 +8,8 @@
     </div>
         <div>
             <div class="flex items-center ">
-                <h3  class="mt-1  font-montserrat font-extrabold "> Engr. {{ engr.fullname }}</h3>
-            <i class="mt-1 ml-1 fa-solid fa-certificate fa-shake text-orange-700"></i>
+                <h3  class="mt-1 text-xs font-montserrat font-extrabold mr-1">{{ engr.fullname }}</h3>
+            <i class="mt-1 fas fa-certificate  text-green-900"></i>
 
             </div>
             

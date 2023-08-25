@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-green-800 text-white h-screen lg:w-64 md:w-48 lg:blovk md:blobk" :class="{ 'hidden': !isMenuOpen, 'lg:block md:block': !isMenuOpen }">
+    <nav class="bg-green-800 text-white h-300 md:w-48 lg:w-64" :class="{ 'hidden': !isMenuOpen, 'lg:block md:block': !isMenuOpen }">
       <div class="flex items-center justify-center h-16 ">
 
       </div>
