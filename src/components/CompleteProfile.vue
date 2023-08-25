@@ -16,16 +16,12 @@
         <div class="mb-4">
           <label class="font-extrabold text-xl">Update Profile Details</label>
           </div>
-          <label class="block mb-2 font-semibold">Full Name</label>
-          <input v-model="fullName" class="w-full p-2 mb-4 border rounded-sm" />
-  
-          <label class="block mb-2 font-semibold">Engineering Field</label>
+          
+          <label class="block mb-2 font-semibold">Engineering Field</label> <h6 class="font-pop-bold font-bold text-sm text-red-900">*if none, leave blank</h6>
           <input v-model="engineeringField" class="w-full p-2 mb-4 border rounded-sm" />
   
-          <label class="block mb-2 font-semibold">Years of Experience</label>
-          <input v-model="yearsOfExperience" type="number" class="w-full p-2 mb-4 border rounded-sm" />
   
-          <label class="block mb-2 font-semibold">Resume  <h6 class="font-pop-bold font-bold text-sm text-red-900">*required format is JPG</h6></label>
+          <label class="block mb-2 font-semibold">CV ( Resume )  <h6 class="font-pop-bold font-bold text-sm text-red-900">*required format is JPG</h6></label>
           <input type="file" ref="resumeInput" @change="handleuploadResume" class="w-full p-2 mb-4 border rounded-sm" />
   
           <label class="block mb-2 font-semibold">Executive Post</label>
@@ -63,9 +59,7 @@ export default {
     },
     data() { 
       return { 
-        fullName : '',
         engineeringField : '',
-        yearsOfExperience : '',
         resume : null,
         executivePost : '',
         profileImage: null,
@@ -86,9 +80,7 @@ export default {
     },
        async completeProfile()  { 
         const formData = new FormData();
-        formData.append('fullname', this.fullName);
         formData.append('engineering_field', this.engineeringField);
-        formData.append('experience_years', this.yearsOfExperience);
         formData.append('resume', this.resume); // Append the resume file
         formData.append('executive_post', this.executivePost);
         formData.append('profile_image', this.profileImage); // Append the profile image file

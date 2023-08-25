@@ -25,7 +25,17 @@
         <div class="py-4 flex justify-center">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
-            Engr. Ikotun Adewale
+            {{profileData.fullname}}
+            </h2><b></b>
+        </div>
+        </div>
+
+
+        <div class="
+         py-4 flex justify-center ">
+         <div class="flex justify-center border py-2 px-2 bg-orange-700 rounded-lg shadow-lg"> 
+         <h2  class="font-montserrat font-bold text-white ">
+            {{profileData.nse_number}}
             </h2><b></b>
         </div>
         </div>
@@ -33,7 +43,7 @@
         <div class="
          py-4 flex justify-center ">
          <div class="flex justify-center"> 
-         <h2  class="font-pop text-green-950 ml-9">
+         <h2  class="font-montserrat font-bold text-green-950">
             {{profileData.executive_post}}
             </h2><b></b>
         </div>
@@ -43,7 +53,7 @@
          py-4 flex justify-center ">
          <div class="flex justify-center items-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
-            08057543423
+            {{profileData.phone_number}}
            </h2>
         </div>
         </div>
@@ -52,7 +62,7 @@
          py-4 flex justify-center ">
          <div class="flex justify-center items-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
-            adewaleikotun88@yahoo.UK
+            {{profileData.email}}
            </h2>
         </div>
         </div>
@@ -138,7 +148,7 @@ export default{
     computed : {
     profileApiUrl() {
       console.log(this.id)
-      return `https://nse-backend-production.up.railway.app/api/engineer/${this.id}`;
+      return `https://nse-backend-production.up.railway.app/api/profile`;
     },
         },
     created() { 
@@ -156,6 +166,7 @@ export default{
                 const response = await axios.get(this.profileApiUrl, {headers : {'Authorization' : `Bearer ${token}`}})
                 if (response.status === 200) { 
                     this.profileData = response.data.data;
+                    console.log(response.data.data)
                 }
 
             }catch(error) { 

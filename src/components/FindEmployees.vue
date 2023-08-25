@@ -39,20 +39,20 @@
     <div class="flex flex-col">
       <div class="flex items-center mt-4 ml-6">
       <button @click="openMenu" >
-    <i class="fas fa-search mr-4 block md:hidden text-green-800 lg:hidden"></i>
+    <i class="fas fa-box mr-4 block md:hidden text-green-800 lg:hidden"></i>
       </button>
       <input
         v-model="searchQuery"
         type="text"
         placeholder="search by name"
-        class="font-serif text-sm px-2 py-2 w-56 bg-gray-100 border-b outline-none border-green-800 hover:border-b-2 "
+        class="font-serif text-sm px-2 py-2 w-60 bg-gray-100 border outline-none border-green-800 hover:border-b-2 "
       />
-      <button @click="searchEngineers" class="ml-2 px-4 py-1 bg-green-800 hover:bg-green-400 text-white rounded-md font-montserrat font-extrabold">
-        <h2 class="text-xl font-extrabold mx-4">&rightarrow;</h2>
+      <button @click="searchEngineers" class="ml-2 px-4 py-1 text-white rounded-md font-montserrat font-extrabold">
+        <i class="text-xl text-green-700 font-extrabold mx-3 fas fa-search"></i>
       </button>
     </div>
     <div class="bg-gray-100 h-screen">
-    <div v-if="isLoading" class="flex items-center justify-center mt-4">
+    <div v-if="isLoading" class="flex items-center justify-center mt-32">
       <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12"></div>
     </div>
   
