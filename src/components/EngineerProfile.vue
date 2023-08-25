@@ -1,30 +1,31 @@
 <template>
     <TopHeader></TopHeader>
     <BaseHeader></BaseHeader>
+    <div class="bg-gray-100">
     <div class="ml-4 flex mt-2 items-center">
     <router-link to="/find-employees" class="text-4xl mr-2 font-bold text-green-900">
       &leftarrow;
     </router-link>
   </div>
-    <div class="flex flex-col items-center mt-4 ">
+    <div class="flex flex-col items-center mt-4 h-screen">
 
         <div v-if="isLoading" class="flex items-center justify-center mt-4">
       <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-16 w-16"></div>
      
     </div>
 
-  <div v-else>
-    <div class="flex flex-col items-center mt-4 ">
+  <div  v-else>
+    <div class="flex flex-col items-center mt-4  ">
         <img v-if="profileData.profile_image" :src="profileData.profile_image" alt="Profile Image" class=" w-48 h-48 rounded-full  border border-orange-950">
         <div v-else>
             <i class="fas fa-circle-user mb-4 text-9xl text-green-800"></i>
         </div>
 
 
-        <div class="py-4 flex justify-center ">
+        <div class="py-4 flex justify-center">
          <div class="flex items-center"> 
          <h2 class="font-pop font-bold text-green-950 ">
-            {{profileData.fullname}}
+            Engr. {{profileData.fullname}}
             </h2><b></b>
         </div>
         </div>
@@ -65,7 +66,7 @@
         </div>
         
         </div>
-        <div class="flex justify-center"> 
+        <div class="flex justify-center mb-48"> 
         
         <div class="bg-orange-600 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
             <a :href="profileData.resume" target="_blank" class="bg-orange-600 ml-2 px-2 rounded-md inline-block">
@@ -78,6 +79,7 @@
     
     </div>
 </div>
+    </div>
     </div>
     </div>
 </template>

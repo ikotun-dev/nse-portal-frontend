@@ -3,7 +3,7 @@
   </TopHeader>
   <BaseHeader>
   </BaseHeader>
-  <div class="flex">
+  <div class="flex bg-gray-100">
     <div
       class="fixed flex inset-0 bg-black bg-opacity-90 transition-opacity"
       :class="{ 'hidden': !isMenuOpen }"
@@ -49,17 +49,19 @@
         search
       </button>
     </div>
+    <div class="bg-gray-100 h-screen">
     <div v-if="isLoading" class="flex items-center justify-center mt-4">
       <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12"></div>
-     
     </div>
-        <div v-else
-      class="lg:px-2 sm:px-2 lg:py-1 py-2 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-4 ml-2 shadow-5xl ">
+  
+     <div v-else
+      class="lg:px-2 sm:px-2 lg:py-1 mt-6 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
       <div class="flex flex-wrap " :class="{'hidden': isMenuOpen}">
   <router-link v-for="engineer in engineers" :key="engineer.id" :to="`/engineer/${engineer.id}`" class="cursor-pointer">
     <EngineerDisplay :engr="engineer" />
   </router-link>
 </div>
+    </div>
     </div>
   </div>
   </div>
