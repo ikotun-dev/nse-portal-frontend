@@ -20,9 +20,9 @@
         <div v-else>
             <i class="fas fa-circle-user mb-4 text-9xl text-green-800"></i>
         </div>
+       
 
-
-        <div class="py-4 flex justify-center">
+        <div class="pt-4 flex justify-center">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
             {{profileData.fullname}}
@@ -32,8 +32,8 @@
 
 
         <div class="
-         py-4 flex justify-center ">
-         <div class="flex justify-center border py-2 px-2 bg-orange-700 rounded-lg shadow-lg"> 
+         py-1 flex justify-center ">
+         <div class="flex justify-center border py-2 px-2 bg-orange-700 rounded-lg shadow-2xl"> 
          <h2  class="font-montserrat font-bold text-white ">
             {{profileData.nse_number}}
             </h2><b></b>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="
-         py-4 flex justify-center ">
+         py-1 flex justify-center ">
          <div class="flex justify-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
             {{profileData.executive_post}}
@@ -49,17 +49,30 @@
         </div>
         </div>
 
+    
+
+       
+
         <div class="
-         py-4 flex justify-center ">
+         py-1 flex justify-center ">
+         <div class="flex justify-center"> 
+        
+         <h2 class="font-montserrat font-bold  text-green-950">
+            {{profileData.engineering_field}}
+            </h2><b></b>
+        </div>
+        </div>
+
+        <div class="
+         py-1 flex justify-center bg-white border border-gray-500 px-2 rounded-lg shadow-inner ">
          <div class="flex justify-center items-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
             {{profileData.phone_number}}
            </h2>
         </div>
         </div>
-
         <div class="
-         py-4 flex justify-center ">
+          mt-2 mb-2 py-1 flex justify-center  bg-white border border-gray-500 px-2 rounded-lg ">
          <div class="flex justify-center items-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
             {{profileData.email}}
@@ -67,61 +80,24 @@
         </div>
         </div>
         <div class="
-         py-2 flex justify-center ">
+         py-1 flex justify-center ">
          <div class="flex justify-center items-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
             Annual-dues
-            </h2><div class="ml-2 w-20 bg-green-700 py-1 px-1 border rounded-lg"><h2 class="text-center font-montserrat font-extrabold text-white text-xs">settled</h2></div>
+            </h2><div class="ml-2 w-20 bg-green-700 py-1 px-1 border rounded-lg shadow-2xl"><h2 class="text-center font-montserrat font-extrabold text-white text-xs">settled</h2></div>
         </div>
         </div>
         <div class="
-         py-2 flex justify-center ">
+         py-1 flex justify-center ">
          <div class="flex justify-center items-center"> 
          <h2  class="font-montserrat font-bold text-green-950">
             verified
             </h2><div class="ml-10 w-20 bg-green-700 py-1 px-1 border rounded-lg"><h2 class="text-center font-montserrat font-extrabold text-white text-xs">yes</h2></div>
         </div>
         </div>
+        
+      
 
-        <div class="
-         py-4 flex justify-center ">
-         <div class="flex justify-center"> 
-        
-    
-         <h2 class="font-pop  text-green-950">
-            {{profileData.engineering_field}}
-            </h2><b></b>
-        </div>
-        </div>
-
-        <div class="
-         py-4 flex justify-center ">
-         <div class="flex justify-center"> 
-        
-            <div class="bg-green-400 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
-                <a :href="profileData.resume" target="_blank" class="bg-green-400 ml-2 px-2 rounded-md inline-block">
-        <h2 class="font-montserrat mt-1 font-extrabold text-xs text-green-950 hover:text-green-200 inline-block mb-1">view CV</h2>
-      </a>
-            </div>
-            
-
-            
-        
-        </div>
-        
-        </div>
-        <div class="flex justify-center mb-48"> 
-        
-        <div class="bg-orange-600 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
-            <a :href="profileData.resume" target="_blank" class="bg-orange-600 ml-2 px-2 rounded-md inline-block">
-    <h2 class="font-montserrat mt-1 font-extrabold text-xs text-orange-950 hover:text-orange-200 inline-block mb-1">send email</h2>
-  </a>
-        </div>
-        
-
-        
-    
-    </div>
 </div>
     </div>
     </div>

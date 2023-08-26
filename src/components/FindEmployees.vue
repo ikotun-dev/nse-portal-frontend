@@ -3,7 +3,7 @@
   </TopHeader>
   <BaseHeader>
   </BaseHeader>
-  <div class="flex bg-gray-100">
+  <div class="flex bg-white">
     <div
       class="fixed flex inset-0 bg-black bg-opacity-90 transition-opacity"
       :class="{ 'hidden': !isMenuOpen }"
@@ -45,13 +45,13 @@
         v-model="searchQuery"
         type="text"
         placeholder="search by name"
-        class="font-serif text-sm px-2 py-2 w-60 bg-gray-100 border outline-none border-green-800 hover:border-b-2 "
+        class="font-serif text-sm px-2 py-2 w-60 bg-gray-100 border outline-none rounded-lg border-green-800 hover:border-b-2 "
       />
       <button @click="searchEngineers" class="ml-2 px-4 py-1 text-white rounded-md font-montserrat font-extrabold">
         <i class="text-xl text-green-700 font-extrabold mx-3 fas fa-search"></i>
       </button>
     </div>
-    <div class="bg-gray-100 h-screen">
+    <div class="bg-white h-screen">
     <div v-if="isLoading" class="flex items-center justify-center mt-32">
       <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12"></div>
     </div>
