@@ -15,7 +15,7 @@
     </div>
 
   <div  v-else>
-    <div class="flex flex-col items-center mt-4  ">
+    <div class="flex flex-col items-center mt-12  ">
         <img v-if="profileData.profile_image" :src="profileData.profile_image" alt="Profile Image" class=" w-48 h-48 rounded-full  border border-orange-950">
         <div v-else>
             <i class="fas fa-circle-user mb-4 text-9xl text-green-800"></i>
@@ -30,14 +30,14 @@
         </div>
         </div>
 
-        <div class="py-1 flex justify-center">
+        <div class="py-1 flex justify-center border border-black px-2 rounded-lg">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
            {{profileData.phone_number}}
             </h2><b></b>
         </div>
         </div>
-        <div class="py-1 flex justify-center">
+        <div class="mt-3 py-1 flex justify-center border border-black px-2 rounded-lg">
          <div class="flex items-center"> 
          <h2 class="font-montserrat font-extrabold text-green-950 ">
            {{profileData.email}}
@@ -69,7 +69,7 @@
         </div>
         
         </div>
-        <div class="flex justify-center mb-48"> 
+        <div class="flex justify-center"> 
         
         <div class="bg-orange-600 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
             <a :href="profileData.resume" target="_blank" class="bg-orange-600 ml-2 px-2 rounded-md inline-block">
