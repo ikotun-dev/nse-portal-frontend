@@ -31,7 +31,7 @@ const store = createStore({
     }
 })*/
 const router = createRouter({
-    history : createWebHistory(), routes
+    history : createWebHistory('nse-portal-frontend'), routes
 })
 
 export default router
