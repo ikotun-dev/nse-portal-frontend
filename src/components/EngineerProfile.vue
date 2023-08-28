@@ -71,15 +71,11 @@
         </div>
         <div class="flex justify-center"> 
         
-        <div class="bg-orange-600 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="{{ profileData.resume }}">
-            <a :href="profileData.resume" target="_blank" class="bg-orange-600 ml-2 px-2 rounded-md inline-block">
+        <div class="bg-orange-600 ml-2 px-4 py-1 rounded-lg border border-orange-950" href="mailto:{{profileData.email}}">
+            <a href="mailto:{{ profileData.email }}" target="_blank" class="bg-orange-600 ml-2 px-2 rounded-md inline-block">
     <h2 class="font-pop-bold mt-1 font-bold text-xs text-orange-950 hover:text-orange-200 inline-block mb-1">send email</h2>
   </a>
         </div>
-        
-
-        
-    
     </div>
 </div>
     </div>
