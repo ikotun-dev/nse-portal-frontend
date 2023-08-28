@@ -51,11 +51,15 @@
         <i class="text-xl text-green-700 font-extrabold mx-3 fas fa-search"></i>
       </button>
     </div>
+
+    <div v-show="noResults" class="text-center">
+      <h4 class="mt-4 font-montserrat font-thin">No results found<br/> click search icon again</h4>
+
+    </div>
     <div class="bg-white h-screen">
     <div v-if="isLoading" class="flex items-center justify-center mt-32">
       <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12"></div>
     </div>
-  
      <div v-else
       class="lg:px-2 sm:px-2 lg:py-1 mt-6 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
       <div class="flex flex-wrap " :class="{'hidden': isMenuOpen}">
@@ -90,6 +94,7 @@ export default {
       searchQuery : '',
       isMenuOpen : false,
       isLoading : true,
+      noResults : false,
     };
   },
   created() {
@@ -117,7 +122,7 @@ console.log("isMenuOpen:", this.isMenuOpen);
     async fetchEngineers() { 
       try {
     const token = localStorage.getItem('token');
-    const response = await axios.get('https://nse-backend-production.up.railway.app/api/engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
+    const response = await axios.get('https://nse-backend-production.up.railway.app/api/all-engineers', {headers : { 'Authorization' : `Bearer ${token}`}})
   
     this.engineers =  await response.data.data;
     localStorage.setItem('engineersData', JSON.stringify(response.data.data)); // Store in localStorage
@@ -137,7 +142,21 @@ try {
     headers: { 'Authorization': `Bearer ${token}` },
     params: { search: this.searchQuery }
   });
-  this.engineers = response.data.data;
+  if(this.searchQuery != ''){
+     if (Array.isArray(response.data.data) && response.data.data.length === 0) {
+      this.noResults = true;
+      this.searchQuery = '';
+      this.engineers = null
+      } else {
+          this.engineers = response.data.data;
+          
+      }
+    }
+    else{
+      this.noResults = false 
+      this.fetchEngineers()
+    }
+
   console.log(this.engineers)
 } catch(error) { 
   console.log(error);
