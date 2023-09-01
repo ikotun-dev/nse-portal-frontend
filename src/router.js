@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import LoginForm from './components/LoginForm.vue'
 import HomePage from './components/HomePage'
 import CompleteProfile from './components/CompleteProfile'
@@ -20,8 +20,9 @@ const routes = [
     {'path' : '/engdisplay', component : EngineerDisplay},
     {'path' : '/find-employees', component : FindEmployees},
     {'path' : '/engineer/:id', component  : EngineerProfile, props : true},
-    {'path' : '/profile/', component : MyProfile, props : true},
-    {'path' : '/dashboard', component : InfoFeed}
+    {'path' : '/profile', component : MyProfile, props : true},
+    {'path' : '/dashboard', component : InfoFeed},
+    { path: '/:pathMatch(.*)*', redirect: '/' } 
 
 ]
 /*
@@ -31,7 +32,7 @@ const store = createStore({
     }
 })*/
 const router = createRouter({
-    history : createWebHistory('nse-portal-frontend'), routes
+    history : createWebHashHistory('nse-portal-frontend'), routes
 })
 
 export default router

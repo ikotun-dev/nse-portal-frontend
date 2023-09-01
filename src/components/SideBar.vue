@@ -14,7 +14,7 @@
           <router-link to="/dashboard">Dashboard</router-link>
         </li>
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
-          <router-link to="/profile/:5">My Profile</router-link>
+          <router-link to="/profile">My Profile</router-link>
         </li>
         <!-- Add other links here -->
       </ul>

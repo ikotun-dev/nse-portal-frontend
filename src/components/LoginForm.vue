@@ -20,9 +20,6 @@
               @click="login">
               Login
             </button>
-
-            <a class="mt-2 text-gray-600 text-xs" href="#">Forgot password?</a>
-            <a class="mt-2 text-gray-600 text-xs" @click="showSignUp">Don't have an account? Signup</a>
           </div>
         </div>
       </div>

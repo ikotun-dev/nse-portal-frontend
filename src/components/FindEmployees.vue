@@ -23,7 +23,7 @@
       <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
         <router-link to="/dashboard">Dashboard</router-link>
       </li>
-      <router-link to="/profile/">
+      <router-link to="/profile">
       <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
         My Profile
       </li>
@@ -148,6 +148,7 @@ try {
       this.searchQuery = '';
       this.engineers = null
       } else {
+          this.noResults = false;
           this.engineers = response.data.data;
           
       }
