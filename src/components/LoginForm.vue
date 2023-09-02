@@ -5,13 +5,13 @@
       <div class="flex justify-center pt-3 lg:pt-12 pb-72 " v-show="showLogin">
 
         <div class="bg-white p-2">
-          <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-96 pt-14 border border-orange-900">
-            <label class="font-serif text-2xl mb-2 text-green-800">NSE-Member Login</label>
+          <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-64 pt-14 border border-orange-900">
+            <label class="font-serif text-lg lg:text-2xl mb-2 text-green-800"><b>NSE-Oluyole</b> Member Login</label>
             <h3 class="text-red-800 font-pop text-sm" v-show="wrongCredentials">Engineer Match Not Found</h3>
             <div
               class="h-8 lg:w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-950 ring-1 ring-green-800 mt-2">
               <input
-                class="px-2 py-2 h-8 lg:w-64 w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-800 ring-1 ring-green-400 "
+                class="px-2 py-2 h-8 lg:w-64 w-64 rounded-sm sm:w-56 focus:outline-none text-xs focus:ring-10 font-pop focus:ring-green-800 ring-1 ring-green-600 "
                 type="text" placeholder="NSE-NO :" v-model="username" required />
             </div>
 

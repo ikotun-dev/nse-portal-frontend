@@ -44,7 +44,7 @@
       <input
         v-model="searchQuery"
         type="text"
-        placeholder="search by name"
+        placeholder="search by name, field"
         class="font-serif text-sm px-2 py-2 w-60 bg-gray-100 border outline-none rounded-lg border-green-800 hover:border-b-2 "
       />
       <button @click="searchEngineers" class="ml-2 px-4 py-1 text-white rounded-md font-montserrat font-extrabold">
