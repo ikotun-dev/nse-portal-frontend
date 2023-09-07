@@ -47,36 +47,45 @@
 
             </div>
             <form>
-            <div class="bg-white mx-4 ">
-                <h2 class="mt-4 text-sm lg:text-2xl font-montserrat font-extrabold">Mentee Registration (Insearch of Mentorship)</h2>
-                <div class="mt-8 mb-8">
-                <label class=" ml-4 text-sm lg:text-sm font-montserrat font-bold">Mentorship Type</label>
-                <select id="mentorship_types"
-                    class="ml-8 font-montserrat font-bold text-xs p-2  text-green-900 outline-green-900 ">
-                    <option selected>None</option>
-                    <option value="employment">Employment</option>
-                    <option value="guidance">Guidance</option>
-                    <option value="sponsorship">Sponsorship</option>
-                    <option value="recommendation">Recommendation</option>
-                </select>
-                </div>
-                <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Preferred Location</label>
-                <input v-model="engineeringField" class="lg:ml-25 w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
-                <br/>
-                <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Role Type (Remote, Hybrid, Onsite)</label>
-                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
-                <div class="mt-4 flex">
-                    <label class="ml-4 text-sm lg:text-sm font-montserrat font-bold">Role(Internship, FullTime)</label>
-                    <h6 class="text-red-600 text-xs mt-1 ml-2 font-extrabold">*if employment</h6>
-                </div>
-              
-                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+                <div class="bg-white mx-4 ">
+                    <h2 class="mt-4 text-sm lg:text-2xl font-montserrat font-extrabold">Mentee Registration (Insearch of
+                        Mentorship)</h2>
+                    <div class="mt-8 mb-8">
+                        <label class=" ml-4 text-sm lg:text-sm font-montserrat font-bold">Mentorship Type</label>
+                        <select id="mentorship_types" v-model="mentorship_type"
+                            class="ml-8 font-montserrat font-bold text-xs p-2  text-green-900 outline-green-900 ">
+                            <option selected>None</option>
+                            <option value="employment">Employment</option>
+                            <option value="guidance">Guidance</option>
+                            <option value="sponsorship">Sponsorship</option>
+                            <option value="recommendation">Recommendation</option>
+                        </select>
+                    </div>
+                    <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold" >Preferred Location</label>
+                    <input v-model="preferred_location"
+                        class="lg:ml-25 w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2"  />
+                    <br />
+                    <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Role Type (Remote, Hybrid,
+                        Onsite)</label>
+                    <input v-model="role_type"
+                        class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+                    <div class="mt-4 flex">
+                        <label class="ml-4 text-sm lg:text-sm font-montserrat font-bold">Role(Internship, FullTime)</label>
+                        <h6 class="text-red-600 text-xs mt-1 ml-2 font-extrabold">*if employment</h6>
+                    </div>
 
-                <br/>
-                <h3 v-show="isLoading" class="ml-5 text-green-800 font-extrabold">Loading....</h3>
-                <br/><button type="submit" class="ml-4 bg-green-600 text-sm font-montserrat font-extrabold text-white px-4 py-2 rounded-md" @click="submit_mentorship()"  >Submit</button>
-                <br><button type="submit" class="ml-4 mt-4 text-sm  bg-orange-600 font-montserrat font-extrabold text-white px-4 py-2 rounded-md" @click="mentor_switch()">I'm a Mentor</button>
-            </div>
+                    <input v-model="role"
+                        class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+
+                    <br />
+                    <h3 v-show="isLoading" class="ml-5 text-green-800 font-extrabold">Loading....</h3>
+                    <br /><button type="submit"
+                        class="ml-4 bg-green-600 text-sm font-montserrat font-extrabold text-white px-4 py-2 rounded-md"
+                        @click="submit_mentorship(); submit_handler()">Submit</button>
+                    <br><button type="submit"
+                        class="ml-4 mt-4 text-sm  bg-orange-600 font-montserrat font-extrabold text-white px-4 py-2 rounded-md"
+                        @click="mentor_switch()">I'm a Mentor</button>
+                </div>
             </form>
 
         </div>
@@ -84,7 +93,7 @@
 </template>
 
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 import TopHeader from './TopHeader.vue';
 import BaseHeader from './BaseHeader.vue';
 import SideBar from './SideBar.vue';
@@ -101,12 +110,12 @@ export default {
     },
     data() {
         return {
-            mentorship_type : null,
-            preferred_location : null,
-            role_type : null,
-            role : null,
+            mentorship_type: null,
+            preferred_location: null,
+            role_type: null,
+            role: null,
             isMenuOpen: false,
-            isLoading : false,
+            isLoading: false,
         }
 
     },
@@ -115,19 +124,33 @@ export default {
             console.log("Toggle button clicked");
             this.isMenuOpen = !this.isMenuOpen; // Toggle the value
             console.log("isMenuOpen:", this.isMenuOpen);
-    },
-    submit_mentorship() { 
-        // mentorship_data = { 
-        //     'mentorship_type' : this.mentorship_type,
-        //     'preferred_location' : this.preferred_location,
-        //     'role_type' : this.role_type,
-        //     'role' : this.role,
-        // }
+        },
+        submit_handler() { 
+            this.isLoading = false
+        },
+        async submit_mentorship() {
 
-    },
-    mentor_switch() { 
-        this.$router.push('/mentor-view')
+            const mentorship_data = {
+                'mentorship_type': this.mentorship_type,
+                'preffered_location': this.preferred_location,
+                'role_type': this.role_type,
+                'role': this.role,
+            }
+            console.log(mentorship_data)
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.post('https://nse-backend-production.up.railway.app/api/register-mentee', mentorship_data, { headers: { 'Authorization': `Bearer ${token}` } })
+                if (response.status === 200) {
+                    console.log(response)
+                }
+            }
+            catch (error) {
+                console.log(error)
+            }
+        },
+            mentor_switch(){
+                this.$router.push('/mentor-view')
+            }
+        }
     }
-}
-}
 </script>
