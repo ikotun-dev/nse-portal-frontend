@@ -12,7 +12,6 @@ import InfoFeed from './components/InfoFeed'
 import MentorshipReg from './components/MentorshipReg'
 import MentorPage from './components/MentorPage'
 
-
 //import { createStore } from "vuex";
 const routes = [ 
     {'path' : '/', component: HomePage},
