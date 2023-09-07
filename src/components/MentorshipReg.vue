@@ -46,19 +46,19 @@
                 <h4 class="mt-4 font-montserrat font-thin">No results found<br /> click search icon again</h4>
 
             </div>
-            <div class="bg-white mx-4 flex justify-center">
-                <label class="mt-8 ml-4 font-montserrat font-bold">Mentorship Type</label>
-                <select id="years" size="5"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option>2016</option>
-                    <option>2017</option>
-                    <option>2018</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2021</option>
-                    <option>2022</option>
+            <div class="bg-white mx-4 ">
+                <h2 class="mt-4 text-sm lg:text-2xl font-montserrat font-extrabold">Mentee Registration (Insearch of Mentorship)</h2>
+                <div class="mt-8">
+                <label class=" ml-4 text-sm lg:text-sm font-montserrat font-bold">Mentorship Type</label>
+                <select id="mentorship_types"
+                    class="ml-8 font-montserrat font-bold text-xs p-2  text-green-900 outline-green-900 ">
+                    <option selected>None</option>
+                    <option value="employment">Employment</option>
+                    <option value="guidance">Guidance</option>
+                    <option value="sponsorship">Sponsorship</option>
+                    <option value="recommendation">Recommendation</option>
                 </select>
-
+                </div>
             </div>
         </div>
     </div>
