@@ -30,13 +30,8 @@ const routes = [
 
 ]
 
+/*const store = createStore({state(){}})*/
 
-/*
-const store = createStore({
-    state(){
-
-    }
-})*/
 const router = createRouter({
     history : createWebHashHistory('nse-portal-frontend'), routes
 })

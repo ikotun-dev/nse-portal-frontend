@@ -49,7 +49,8 @@
             
             <div>
                 <h3 class="font-montserrat font-extrabold ml-8 mt-8">Mentorship Requests</h3>
-                
+                <div class="flex flex-wrap">
+        <EngineerDisplay v-for="engineer in engineers" :key="engineer.id" :engr="engineer"/></div>
             </div>
         </div>
     </div>
@@ -60,7 +61,7 @@
 import TopHeader from './TopHeader.vue';
 import BaseHeader from './BaseHeader.vue';
 import SideBar from './SideBar.vue';
-//import EngineerDisplay from './EngineerDisplay.vue'
+import MentorshipReq from './MentorshipReq.vue';
 
 //import ProfileForm from './ProfileForm'
 export default {
@@ -68,7 +69,7 @@ export default {
         TopHeader,
         BaseHeader,
         SideBar,
-        //EngineerDisplay,
+        MentorshipReq
         // ProfileForm
     },
     data() {
