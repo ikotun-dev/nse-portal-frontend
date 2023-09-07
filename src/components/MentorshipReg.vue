@@ -46,9 +46,10 @@
                 <h4 class="mt-4 font-montserrat font-thin">No results found<br /> click search icon again</h4>
 
             </div>
+            <form>
             <div class="bg-white mx-4 ">
                 <h2 class="mt-4 text-sm lg:text-2xl font-montserrat font-extrabold">Mentee Registration (Insearch of Mentorship)</h2>
-                <div class="mt-8">
+                <div class="mt-8 mb-8">
                 <label class=" ml-4 text-sm lg:text-sm font-montserrat font-bold">Mentorship Type</label>
                 <select id="mentorship_types"
                     class="ml-8 font-montserrat font-bold text-xs p-2  text-green-900 outline-green-900 ">
@@ -59,7 +60,24 @@
                     <option value="recommendation">Recommendation</option>
                 </select>
                 </div>
+                <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Preferred Location</label>
+                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+                <br/>
+                <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Role Type (Remote, Hybrid, Onsite)</label>
+                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+                <div class="mt-4 flex">
+                    <label class="ml-4 text-sm lg:text-sm font-montserrat font-bold">Role(Internship, FullTime)</label>
+                    <h6 class="text-red-600 text-xs mt-1 ml-2 font-extrabold">*if employment</h6>
+                </div>
+              
+                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+
+                <br/>
+                <h3 v-show="isLoading">Loading</h3>
+                <br/><br/><button type="submit" class="ml-4 bg-green-600 text-white px-4 py-2 rounded-md" @click="completeProfile(); submitHandler()"  >Submit</button>
             </div>
+            </form>
+
         </div>
     </div>
 </template>
@@ -83,16 +101,30 @@ export default {
     },
     data() {
         return {
-            isMenuOpen: false
-
+            mentorship_type : null,
+            preferred_location : null,
+            role_type : null,
+            role : null,
+            isMenuOpen: false,
+            isLoading : false,
         }
+
     },
     methods: {
         openMenu() {
             console.log("Toggle button clicked");
             this.isMenuOpen = !this.isMenuOpen; // Toggle the value
             console.log("isMenuOpen:", this.isMenuOpen);
-        }
+    },
+    submit_mentorship() { 
+        // mentorship_data = { 
+        //     'mentorship_type' : this.mentorship_type,
+        //     'preferred_location' : this.preferred_location,
+        //     'role_type' : this.role_type,
+        //     'role' : this.role,
+        // }
+
     }
+}
 }
 </script>
