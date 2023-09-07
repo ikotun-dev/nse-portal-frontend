@@ -4,8 +4,8 @@
       <SignupForm v-show="showSignup" @showLoginForm="showSignUp"></SignupForm>
       <div class="flex justify-center pt-3 lg:pt-12 pb-72 " v-show="showLogin">
 
-        <div class="bg-white p-2">
-          <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-64 pt-14 border border-orange-900">
+        <div class="bg-white p-2 border rounded-md">
+          <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-64 pt-14 border border-orange-900 rounded-md">
             <label class="font-serif text-lg lg:text-2xl mb-2 text-green-800"><b>NSE-Oluyole</b> Member Login</label>
             <h3 class="text-red-800 font-pop text-sm" v-show="wrongCredentials">Engineer Match Not Found</h3>
             <div

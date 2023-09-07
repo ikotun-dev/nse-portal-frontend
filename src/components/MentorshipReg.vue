@@ -61,7 +61,7 @@
                 </select>
                 </div>
                 <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Preferred Location</label>
-                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
+                <input v-model="engineeringField" class="lg:ml-25 w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
                 <br/>
                 <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Role Type (Remote, Hybrid, Onsite)</label>
                 <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
@@ -73,8 +73,8 @@
                 <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
 
                 <br/>
-                <h3 v-show="isLoading">Loading</h3>
-                <br/><br/><button type="submit" class="ml-4 bg-green-600 text-white px-4 py-2 rounded-md" @click="completeProfile(); submitHandler()"  >Submit</button>
+                <h3 v-show="isLoading" class="ml-5 text-green-800 font-extrabold">Loading....</h3>
+                <br/><button type="submit" class="ml-4 bg-green-600 text-white px-4 py-2 rounded-md" @click="completeProfile(); submitHandler()"  >Submit</button>
             </div>
             </form>
 

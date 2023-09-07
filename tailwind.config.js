@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       spacing: {
         '17' : '4.43rem',
+        '25' : '8.22rem',
         '100' : '56rem'
+
       },
 
       fontFamily :{
