@@ -8,7 +8,7 @@
           <router-link to="/find-employees">Find Employee</router-link>
         </li>
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
-          <router-link to="/dashboard">Mentorship</router-link>
+          <router-link to="/mentorship">Mentorship</router-link>
         </li>
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
           <router-link to="/dashboard">Dashboard</router-link>
