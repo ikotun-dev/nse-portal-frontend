@@ -10,6 +10,9 @@ import EngineerProfile from './components/EngineerProfile'
 import MyProfile from './components/MyProfile'
 import InfoFeed from './components/InfoFeed'
 import MentorshipReg from './components/MentorshipReg'
+import MentorPage from './components/MentorPage'
+
+
 //import { createStore } from "vuex";
 const routes = [ 
     {'path' : '/', component: HomePage},
@@ -23,9 +26,12 @@ const routes = [
     {'path' : '/profile', component : MyProfile, props : true},
     {'path' : '/dashboard', component : InfoFeed},
     {'path' : '/mentorship', component: MentorshipReg},
-    { path: '/:pathMatch(.*)*', redirect: '/' } 
+    {'path' : '/mentor-view', component: MentorPage},
+    { path: '/:pathMatch(.*)*', redirect: '/' },
 
 ]
+
+
 /*
 const store = createStore({
     state(){

@@ -46,39 +46,10 @@
                 <h4 class="mt-4 font-montserrat font-thin">No results found<br /> click search icon again</h4>
 
             </div>
-            <form>
-            <div class="bg-white mx-4 ">
-                <h2 class="mt-4 text-sm lg:text-2xl font-montserrat font-extrabold">Mentee Registration (Insearch of Mentorship)</h2>
-                <div class="mt-8 mb-8">
-                <label class=" ml-4 text-sm lg:text-sm font-montserrat font-bold">Mentorship Type</label>
-                <select id="mentorship_types"
-                    class="ml-8 font-montserrat font-bold text-xs p-2  text-green-900 outline-green-900 ">
-                    <option selected>None</option>
-                    <option value="employment">Employment</option>
-                    <option value="guidance">Guidance</option>
-                    <option value="sponsorship">Sponsorship</option>
-                    <option value="recommendation">Recommendation</option>
-                </select>
-                </div>
-                <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Preferred Location</label>
-                <input v-model="engineeringField" class="lg:ml-25 w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
-                <br/>
-                <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Role Type (Remote, Hybrid, Onsite)</label>
-                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
-                <div class="mt-4 flex">
-                    <label class="ml-4 text-sm lg:text-sm font-montserrat font-bold">Role(Internship, FullTime)</label>
-                    <h6 class="text-red-600 text-xs mt-1 ml-2 font-extrabold">*if employment</h6>
-                </div>
-              
-                <input v-model="engineeringField" class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
-
-                <br/>
-                <h3 v-show="isLoading" class="ml-5 text-green-800 font-extrabold">Loading....</h3>
-                <br/><button type="submit" class="ml-4 bg-green-600 text-sm font-montserrat font-extrabold text-white px-4 py-2 rounded-md" @click="submit_mentorship()"  >Submit</button>
-                <br><button type="submit" class="ml-4 mt-4 text-sm  bg-orange-600 font-montserrat font-extrabold text-white px-4 py-2 rounded-md" @click="mentor_switch()">I'm a Mentor</button>
+            
+            <div>
+                <h3 class="font-montserrat font-extrabold ml-8 mt-8">Mentorship Requests</h3>
             </div>
-            </form>
-
         </div>
     </div>
 </template>
