@@ -135,7 +135,7 @@ export default {
             console.log("isMenuOpen:", this.isMenuOpen);
         },
         submit_handler() {
-            this.isLoading = false
+            this.isLoading = true
         },
         async submit_mentorship() {
 

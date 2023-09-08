@@ -15,7 +15,7 @@
           <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
             <router-link to="/find-employees">Find Employee</router-link>
           </li>
-          <li  @click="mentorNavigator" class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
+          <li @click="mentorNavigator" class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
             <h2 @click="mentorNavigator">Mentorship</h2>
           </li>
           <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
@@ -38,12 +38,12 @@
     <div class="flex flex-col">
       <div class="flex items-center mt-4 ml-6">
         <button @click="openMenu">
-          <i class="fas fa-box mr-4 block md:hidden text-green-800 lg:hidden"></i>
+          <i class="fas fa-box mr-4 block md:hidden text-green-950 lg:hidden"></i>
         </button>
         <input v-model="searchQuery" type="text" placeholder="search by name, field"
-          class="font-serif text-sm px-2 py-2 w-60 bg-gray-100 border outline-none rounded-lg border-green-800 hover:border-b-2 " />
+          class="font-extralight text-sm px-2 py-2 w-60 bg-gray-100 border outline-none rounded-sm border-green-950 hover:border-b-2 " />
         <button @click="searchEngineers" class="ml-2 px-4 py-1 text-white rounded-md font-montserrat font-extrabold">
-          <i class="text-xl text-green-700 font-extrabold mx-3 fas fa-search"></i>
+          <i class="text-xl text-green-950 font-extrabold mx-3 fas fa-search"></i>
         </button>
       </div>
 
@@ -106,21 +106,26 @@ export default {
     this.searchEngineers();
   },
   methods: {
-    async mentorNavigator(){
-        try {
-          const token = localStorage.getItem('token');
-          const response = await axios.get('https://nse-backend-production.up.railway.app/api/check-status', { headers : { 'Authorization' : `Bearer ${token}` }})
-          if(response.status === 200){
-            console.log("if block")
-            this.$router.push('/mentor-view')
-          }
-          else{
-            console.log("else block")
-            this.$router.push('/mentorship')
-          }
-        }catch(error){
-          console.log(error)
+    async mentorNavigator() {
+      try{
+        const token = localStorage.getItem('token');
+        const response = await axios.get('https://nse-backend-production.up.railway.app/api/check-status', { headers: { 'Authorization': `Bearer ${token}` } })
+        if (response.status === 200) {
+          console.log("if block")
+          this.$router.push('/mentor-view');
+        }else if (response.status === 202) {
+          this.$router.push('/mentorship');
+          console.log("else block for 400 Bad Request");
+          // Handle the 400 error as needed
+        }else{
+        //  this.$router.push('/mentorship');
+          console.log("else block for other status codes", response.status);
+          // Handle other status codes here
+        }}
+        catch(error){
+          console.log('wow')
         }
+      
     },
     loading() {
 

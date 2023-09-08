@@ -15,7 +15,7 @@
                     <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
                         <router-link to="/find-employees">Find Employee</router-link>
                     </li>
-                    <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
+                    <li class="mb-2 py-2 hover:bg-green-700 bg-green-400 text-center font-montserrat font-bold ">
                         <router-link to="/mentorship">Mentorship</router-link>
                     </li>
                     <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
