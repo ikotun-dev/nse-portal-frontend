@@ -41,11 +41,6 @@
                     <i class="fas fa-box mr-4 block md:hidden text-green-800 lg:hidden"></i>
                 </button>
             </div>
-
-            <div v-show="noResults" class="text-center">
-                <h4 class="mt-4 font-montserrat font-thin">No results found<br /> click search icon again</h4>
-
-            </div>
             
             <div>
                 <div class="bg-white h-screen">
@@ -55,9 +50,8 @@
         <div v-else
           class="lg:px-2 sm:px-2 lg:py-1 mt-6 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
           <div class="flex flex-wrap " :class="{ 'hidden': isMenuOpen }">
-            <router-link v-for="engineer in engineers" :key="engineer.id" :to="`/engineer/${engineer.id}`"
-              class="cursor-pointer">
-              <EngineerDisplay :engr="engineer" />
+            <router-link v-for="request in mentorshipRequests" :key="request.id" :to="`/request/${request.id}`" class="cursor-pointer">
+              <MentorshipReq :mentorshipRequest="request" />
             </router-link>
           </div>
         </div>
@@ -68,7 +62,7 @@
 </template>
 
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 import TopHeader from './TopHeader.vue';
 import BaseHeader from './BaseHeader.vue';
 import SideBar from './SideBar.vue';
@@ -77,6 +71,7 @@ import MentorshipReq from './MentorshipReq.vue';
 // import ProfileForm from './ProfileForm'
 export default {
     components: {
+      
         TopHeader,
         BaseHeader,
         SideBar,
@@ -85,6 +80,7 @@ export default {
     },
     data() {
         return {
+            mentorshipRequests : [],
             mentorship_type : null,
             preferred_location : null,
             role_type : null,
@@ -94,7 +90,32 @@ export default {
         }
 
     },
+ /*   created(){
+        const MentReq = localStorage.getItem('mentorshipRequests')
+        if(MentReq) { 
+            const MenteRequests = JSON.parse(MentReq);
+            console.log(MenteRequests)
+
+        }else{
+            this.getMentorshipRequests
+        }
+
+    }, */
     methods: {
+        async getMentorshipRequests() { 
+            try{
+                const token = localStorage.getItem('token')
+                const response = await axios.get('http://127.0.0.1:8000/api/register-mentee', { headers : { 'Authorization' : `Bearer ${token}`}})
+                if(response.status === 200){
+                    this.mentorshipRequests = await response.data.data;
+                    localStorage.setItem('mentorshsipRequests', JSON.stringify(response.data.data)); // Store in localStorage
+        // this.engineers = response.data;
+                    console.log('Mentor Data:', this.mentorshipRequests );
+                }
+            }catch(error){
+                console.log(error)
+            }
+        },
         openMenu() {
             console.log("Toggle button clicked");
             this.isMenuOpen = !this.isMenuOpen; // Toggle the value
@@ -112,6 +133,9 @@ export default {
     mentor_switch() { 
         this.$router.push('/mentor-view')
     }
+},
+mounted(){
+    this.getMentorshipRequests()
 }
 }
 </script>
