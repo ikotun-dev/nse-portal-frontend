@@ -7,13 +7,13 @@
     </div>
         <div>
             <div class="flex items-center ">
-                <h3  class="mt-1 text-xs font-montserrat font-extrabold mr-1">Sponsorship</h3>
+                <h3  class="mt-1 text-xs font-montserrat font-extrabold mr-1">mentorshipRequest.mentorship_type</h3>
             <i class="mt-1 fas fa-certificate  text-green-900"></i>
 
             </div>
             
-            <h4  class=" font-montserrat text-sm font-light ">Electrical</h4>
-            <h6  class="font-montserrat font-bold  text-sm">Remote</h6>
+            <h4  class=" font-montserrat text-sm font-light ">mentorshipRequest.preffered_location</h4>
+            <h6  class="font-montserrat font-bold  text-sm">mentorship.role</h6>
             
         </div>
     </div>

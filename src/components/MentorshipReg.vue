@@ -146,7 +146,7 @@ export default {
                 'role': this.role,
             }
             console.log(mentorship_data)
-            alert(mentorship_data.preffered_location)
+          //  alert(mentorship_data.preffered_location)
             try {
                 const token = localStorage.getItem('token');
                 const response = await axios.post('https://nse-backend-production.up.railway.app/api/register-mentee', mentorship_data, { headers: { 'Authorization': `Bearer ${token}` } })
@@ -155,7 +155,7 @@ export default {
                     console.log(response.data)
                     setTimeout(() => {
                         this.$router.push('/find-employees')
-                    }, 4000
+                    }, 3000
                     )
                 }else if(response.status === 400 ){
                     this.error = true
