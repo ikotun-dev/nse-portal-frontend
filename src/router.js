@@ -11,6 +11,7 @@ import MyProfile from './components/MyProfile'
 import InfoFeed from './components/InfoFeed'
 import MentorshipReg from './components/MentorshipReg'
 import MentorPage from './components/MentorPage'
+import MenteeRegSuccess from './components/MenteeRegSuccess'
 
 //import { createStore } from "vuex";
 const routes = [ 
@@ -26,6 +27,7 @@ const routes = [
     {'path' : '/dashboard', component : InfoFeed},
     {'path' : '/mentorship', component: MentorshipReg},
     {'path' : '/mentor-view', component: MentorPage},
+    {'path' : '/mentee-reg-success', component: MenteeRegSuccess},
     { path: '/:pathMatch(.*)*', redirect: '/' },
 
 ]

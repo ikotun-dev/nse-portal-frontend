@@ -42,10 +42,7 @@
                 </button>
             </div>
 
-            <div v-show="noResults" class="text-center">
-                <h4 class="mt-4 font-montserrat font-thin">No results found<br /> click search icon again</h4>
 
-            </div>
             <form>
                 <div class="bg-white mx-4 ">
                     <h2 class="mt-4 text-sm lg:text-2xl font-montserrat font-extrabold">Mentee Registration (Insearch of
@@ -61,9 +58,9 @@
                             <option value="recommendation">Recommendation</option>
                         </select>
                     </div>
-                    <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold" >Preferred Location</label>
+                    <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Preferred Location</label>
                     <input v-model="preferred_location"
-                        class="lg:ml-25 w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2"  />
+                        class="lg:ml-25 w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
                     <br />
                     <label class="mt-24 ml-4 text-sm lg:text-sm font-montserrat font-bold">Role Type (Remote, Hybrid,
                         Onsite)</label>
@@ -78,6 +75,16 @@
                         class="w-80 p-2 mb-4 mt-4 ml-4 border border-green-900 rounded-lg font-montserrat text-sm outline-none focus:ring-green-600 focus:border-2" />
 
                     <br />
+
+                    <div v-show="registerSuccess" class=" mx-3 px-4 py-3 border bg-green-300 rounded-md border-green-800 ">
+                        <h2 class="text-center font-montserrat text-green-900 font-extrabold">Mentee Registration
+                            successfull</h2>
+                    </div>
+
+                    <div v-show="error" class=" mx-3 px-4 py-3 border bg-red-400 rounded-md border-red-800 ">
+                        <h2 class="text-center font-montserrat text-red-900 font-extrabold">An Error occured</h2>
+                    </div>
+
                     <h3 v-show="isLoading" class="ml-5 text-green-800 font-extrabold">Loading....</h3>
                     <br /><button type="submit"
                         class="ml-4 bg-green-600 text-sm font-montserrat font-extrabold text-white px-4 py-2 rounded-md"
@@ -116,6 +123,8 @@ export default {
             role: null,
             isMenuOpen: false,
             isLoading: false,
+            registerSuccess: false,
+            error: false
         }
 
     },
@@ -125,7 +134,7 @@ export default {
             this.isMenuOpen = !this.isMenuOpen; // Toggle the value
             console.log("isMenuOpen:", this.isMenuOpen);
         },
-        submit_handler() { 
+        submit_handler() {
             this.isLoading = false
         },
         async submit_mentorship() {
@@ -137,20 +146,35 @@ export default {
                 'role': this.role,
             }
             console.log(mentorship_data)
+            alert(mentorship_data.preffered_location)
             try {
                 const token = localStorage.getItem('token');
                 const response = await axios.post('https://nse-backend-production.up.railway.app/api/register-mentee', mentorship_data, { headers: { 'Authorization': `Bearer ${token}` } })
                 if (response.status === 200) {
-                    console.log(response)
+                    this.registerSuccess = true
+                    console.log(response.data)
+                    setTimeout(() => {
+                        this.$router.push('/find-employees')
+                    }, 4000
+                    )
+                }else if(response.status === 400 ){
+                    this.error = true
+
+                }
+                else{
+                    this.error = true
+                    console.log(response.data)
                 }
             }
-            catch (error) {
+            catch(error) {
+                this.error = true
                 console.log(error)
-            }
-        },
-            mentor_switch(){
-                this.$router.push('/mentor-view')
-            }
+            
         }
+    },
+    mentor_switch() {
+        this.$router.push('/mentor-view')
+    }
+}
     }
 </script>
