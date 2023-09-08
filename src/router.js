@@ -12,7 +12,7 @@ import InfoFeed from './components/InfoFeed'
 import MentorshipReg from './components/MentorshipReg'
 import MentorPage from './components/MentorPage'
 import MenteeRegSuccess from './components/MenteeRegSuccess'
-
+import MenteeReqView from './components/MenteeReqView'
 //import { createStore } from "vuex";
 const routes = [ 
     {'path' : '/', component: HomePage},
@@ -26,6 +26,7 @@ const routes = [
     {'path' : '/profile', component : MyProfile, props : true},
     {'path' : '/dashboard', component : InfoFeed},
     {'path' : '/mentorship', component: MentorshipReg},
+    {'path' : '/mentee-req/:id', component  : MenteeReqView, props : true},
     {'path' : '/mentor-view', component: MentorPage},
     {'path' : '/mentee-reg-success', component: MenteeRegSuccess},
     { path: '/:pathMatch(.*)*', redirect: '/' },

@@ -169,7 +169,6 @@ export default {
             catch(error) {
                 this.error = true
                 console.log(error)
-            
         }
     },
     mentor_switch() {

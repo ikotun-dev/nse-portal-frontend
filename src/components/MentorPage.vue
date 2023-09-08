@@ -15,7 +15,7 @@
                     <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
                         <router-link to="/find-employees">Find Employee</router-link>
                     </li>
-                    <li class="mb-2 py-2 hover:bg-green-700 bg-green-400 text-center font-montserrat font-bold ">
+                    <li class="mb-2 py-2 hover:bg-green-700 bg-green-950 text-center font-montserrat font-bold ">
                         <router-link to="/mentorship">Mentorship</router-link>
                     </li>
                     <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
@@ -38,21 +38,27 @@
         <div class="flex flex-col">
             <div class="flex items-center mt-4 ml-6">
                 <button @click="openMenu">
-                    <i class="fas fa-box mr-4 block md:hidden text-green-800 lg:hidden"></i>
+                    <i class="fas fa-box mr-4 block md:hidden text-green-950 lg:hidden"></i>
                 </button>
+
+              
             </div>
 
             <div>
                 <div class="bg-white h-screen">
+                    
+                    <h3 class="font-montserrat mb-3 lg:mb-1 ml-10 mt-6 font-extrabold text-green-950 text-lg">Mentorship Requests</h3>
+                    
+                    <hr class="lg:hidden">
                     <div v-if="isLoading" class="flex items-center justify-center mt-32 ml-36">
                         <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12">
                         </div>
                     </div>
                     <div v-else
-                        class="lg:px-2 sm:px-2 lg:py-1 mt-6 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
+                        class="lg:px-2 sm:px-2 lg:py-1 mt-2 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
                         <div class="flex flex-wrap " :class="{ 'hidden': isMenuOpen }">
                             <router-link v-for="request in mentorshipRequests" :key="request.id"
-                                :to="`/request/${request.id}`" class="cursor-pointer">
+                                :to="`/mentee-req/${request.id}`" class="cursor-pointer">
                                 <MentorshipReq :mentorshipRequest="request" />
                             </router-link>
                         </div>
