@@ -111,9 +111,11 @@ export default {
           const token = localStorage.getItem('token');
           const response = await axios.get('https://nse-backend-production.up.railway.app/api/check-status', { headers : { 'Authorization' : `Bearer ${token}` }})
           if(response.status === 200){
+            console.log("if block")
             this.$router.push('/mentor-view')
           }
           else{
+            console.log("else block")
             this.$router.push('/mentorship')
           }
         }catch(error){

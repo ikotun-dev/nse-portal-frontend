@@ -105,7 +105,7 @@ export default {
         async getMentorshipRequests() { 
             try{
                 const token = localStorage.getItem('token')
-                const response = await axios.get('http://127.0.0.1:8000/api/register-mentee', { headers : { 'Authorization' : `Bearer ${token}`}})
+                const response = await axios.get('https://nse-backend-production.up.railway.app/api/register-mentee', { headers : { 'Authorization' : `Bearer ${token}`}})
                 if(response.status === 200){
                     this.mentorshipRequests = await response.data.data;
                     localStorage.setItem('mentorshsipRequests', JSON.stringify(response.data.data)); // Store in localStorage

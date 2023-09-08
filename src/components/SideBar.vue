@@ -7,8 +7,8 @@
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
           <router-link to="/find-employees">Find Employee</router-link>
         </li>
-        <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold ">
-          <router-link to="/mentorship">Mentorship</router-link>
+        <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold " @click="mentorNavigator">
+          <h2 @click="mentorNavigator">Mentorship</h2>
         </li>
         <li class="mb-2 py-2 hover:bg-green-700 text-center font-montserrat font-bold">
           <router-link to="/dashboard">Dashboard</router-link>
@@ -22,6 +22,7 @@
   </template>
   
   <script>
+  import axios from 'axios';
   export default {
     name: 'SideBar',
     data() { 
@@ -29,6 +30,24 @@
         isMenuOpen : false
       }
 
+    },
+    methods :{
+      async mentorNavigator(){
+        try {
+          const token = localStorage.getItem('token');
+          const response = await axios.get('https://nse-backend-production.up.railway.app/api/check-status', { headers : { 'Authorization' : `Bearer ${token}` }})
+          if(response.status === 200){
+            console.log("if block")
+            this.$router.push('/mentor-view')
+          }
+          else{
+            console.log("else block")
+            this.$router.push('/mentorship')
+          }
+        }catch(error){
+          console.log(error)
+        }
+    },
     }
   };
   </script>
