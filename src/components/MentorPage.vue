@@ -41,21 +41,23 @@
                     <i class="fas fa-box mr-4 block md:hidden text-green-800 lg:hidden"></i>
                 </button>
             </div>
-            
+
             <div>
                 <div class="bg-white h-screen">
-        <div v-if="isLoading" class="flex items-center justify-center mt-32">
-          <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12"></div>
-        </div>
-        <div v-else
-          class="lg:px-2 sm:px-2 lg:py-1 mt-6 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
-          <div class="flex flex-wrap " :class="{ 'hidden': isMenuOpen }">
-            <router-link v-for="request in mentorshipRequests" :key="request.id" :to="`/request/${request.id}`" class="cursor-pointer">
-              <MentorshipReq :mentorshipRequest="request" />
-            </router-link>
-          </div>
-        </div>
-      </div>
+                    <div v-if="isLoading" class="flex items-center justify-center mt-32 ml-36">
+                        <div class="animate-spin rounded-full border-t-2 border-green-900 border-opacity-100 h-12 w-12">
+                        </div>
+                    </div>
+                    <div v-else
+                        class="lg:px-2 sm:px-2 lg:py-1 mt-6 py-1 lg:h-96 sm:h-120 lg:w-120 sm:w-70 lg:rounded-lg sm:rounded-sm  lg:mt-4 mb-1 ml-2 shadow-5xl ">
+                        <div class="flex flex-wrap " :class="{ 'hidden': isMenuOpen }">
+                            <router-link v-for="request in mentorshipRequests" :key="request.id"
+                                :to="`/request/${request.id}`" class="cursor-pointer">
+                                <MentorshipReq :mentorshipRequest="request" />
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -71,71 +73,73 @@ import MentorshipReq from './MentorshipReq.vue';
 // import ProfileForm from './ProfileForm'
 export default {
     components: {
-      
+
         TopHeader,
         BaseHeader,
         SideBar,
-       MentorshipReq
+        MentorshipReq
         // ProfileForm
     },
     data() {
         return {
-            mentorshipRequests : [],
-            mentorship_type : null,
-            preferred_location : null,
-            role_type : null,
-            role : null,
+            mentorshipRequests: [],
+            mentorship_type: null,
+            preferred_location: null,
+            role_type: null,
+            role: null,
             isMenuOpen: false,
-            isLoading : false,
+            isLoading: true,
         }
 
     },
- /*   created(){
-        const MentReq = localStorage.getItem('mentorshipRequests')
-        if(MentReq) { 
-            const MenteRequests = JSON.parse(MentReq);
-            console.log(MenteRequests)
-
-        }else{
-            this.getMentorshipRequests
-        }
-
-    }, */
+    /*   created(){
+           const MentReq = localStorage.getItem('mentorshipRequests')
+           if(MentReq) { 
+               const MenteRequests = JSON.parse(MentReq);
+               console.log(MenteRequests)
+   
+           }else{
+               this.getMentorshipRequests
+           }
+   
+       }, */
     methods: {
-        async getMentorshipRequests() { 
-            try{
+        async getMentorshipRequests() {
+            try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get('https://nse-backend-production.up.railway.app/api/register-mentee', { headers : { 'Authorization' : `Bearer ${token}`}})
-                if(response.status === 200){
+                const response = await axios.get('https://nse-backend-production.up.railway.app/api/register-mentee', { headers: { 'Authorization': `Bearer ${token}` } })
+                if (response.status === 200) {
                     this.mentorshipRequests = await response.data.data;
                     localStorage.setItem('mentorshsipRequests', JSON.stringify(response.data.data)); // Store in localStorage
-        // this.engineers = response.data;
-                    console.log('Mentor Data:', this.mentorshipRequests );
+                    // this.engineers = response.data;
+                    console.log('Mentor Data:', this.mentorshipRequests);
                 }
-            }catch(error){
+            } catch (error) {
                 console.log(error)
+            } finally {
+                this.isLoading = false
             }
         },
         openMenu() {
             console.log("Toggle button clicked");
             this.isMenuOpen = !this.isMenuOpen; // Toggle the value
             console.log("isMenuOpen:", this.isMenuOpen);
-    },
-    submit_mentorship() { 
-        // mentorship_data = { 
-        //     'mentorship_type' : this.mentorship_type,
-        //     'preferred_location' : this.preferred_location,
-        //     'role_type' : this.role_type,
-        //     'role' : this.role,
-        // }
+        },
+        submit_mentorship() {
+            // mentorship_data = { 
+            //     'mentorship_type' : this.mentorship_type,
+            //     'preferred_location' : this.preferred_location,
+            //     'role_type' : this.role_type,
+            //     'role' : this.role,
+            // }
 
+        },
+        mentor_switch() {
+            this.$router.push('/mentor-view')
+        }
     },
-    mentor_switch() { 
-        this.$router.push('/mentor-view')
+    mounted() {
+        this.getMentorshipRequests()
     }
-},
-mounted(){
-    this.getMentorshipRequests()
-}
 }
 </script>
