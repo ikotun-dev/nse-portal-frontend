@@ -88,7 +88,7 @@
                     <h3 v-show="isLoading" class="ml-5 text-green-800 font-extrabold">Loading....</h3>
                     <br /><button type="submit"
                         class="ml-4 bg-green-600 text-sm font-montserrat font-extrabold text-white px-4 py-2 rounded-md"
-                        @click="submit_mentorship(); submit_handler()">Submit</button>
+                        @click="submit_mentorship()">Submit</button>
                     <br><button type="submit"
                         class="ml-4 mt-4 text-sm  bg-orange-600 font-montserrat font-extrabold text-white px-4 py-2 rounded-md"
                         @click="mentor_switch()">I'm a Mentor</button>
@@ -138,7 +138,7 @@ export default {
             this.isLoading = true
         },
         async submit_mentorship() {
-
+            this.isLoading = true
             const mentorship_data = {
                 'mentorship_type': this.mentorship_type,
                 'preffered_location': this.preferred_location,
@@ -154,7 +154,7 @@ export default {
                     this.registerSuccess = true
                     console.log(response.data)
                     setTimeout(() => {
-                        this.$router.push('/find-employees')
+                        this.$router.push('/mentor-view')
                     }, 3000
                     )
                 }else if(response.status === 400 ){

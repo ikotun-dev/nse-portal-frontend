@@ -17,28 +17,28 @@
           <label class="font-extrabold text-xl">Update Profile Details</label>
           </div>
           
-          <label class="block mb-2 font-semibold">Engineering Field</label> <h6 class="font-pop-bold font-bold text-sm text-red-900">*if none, leave blank</h6>
-          <input v-model="engineeringField" class="w-full p-2 mb-4 border rounded-sm" />
+          <label class="block mb-2 font-semibold">Engineering Field</label> 
+          <input v-model="engineeringField" class="w-full p-2 mb-4 border rounded-sm" required/>
   
   
-          <label class="block mb-2 font-semibold">CV ( Resume )  <h6 class="font-pop-bold font-bold text-sm text-red-900">*required format is JPG</h6></label>
+          <label class="block mb-2 font-semibold">CV ( Resume )  <h6 class="font-pop-bold font-bold text-sm text-red-950">*required format is PDF or JPG</h6></label>
           <input type="file" ref="resumeInput" @change="handleuploadResume" class="w-full p-2 mb-4 border rounded-sm" />
   
-          <label class="block mb-2 font-semibold">Executive Post</label>
+          <label class="block mb-2 font-semibold">Executive Post</label><h6 class="font-pop-bold font-bold text-sm text-red-950">*if none, leave blank</h6>
           <input v-model="executivePost" class="w-full p-2 mb-4 border rounded-sm" />
   
-          <label class="block mb-2 font-semibold">Profile Image <h6 class="font-pop-bold font-bold text-sm text-red-900">*required format is JPG</h6></label>
+          <label class="block mb-2 font-semibold">Profile Image <h6 class="font-pop-bold font-bold text-sm text-red-950">*required format is JPG</h6></label>
           <input type="file" ref="profileImageInput" @change="handleUploadProfileImage" class="w-full p-2 mb-4 border rounded-sm" />
           <div class="py-2 px-2 bg-green-200 border border-green-900 mt-3 mb-4 ml-4 rounded-lg" v-show="updateSucess">
-            <h4 class="text-green-950 text-center text-md">Profile updated succesfully</h4>
+            <h4 class="text-green-950 text-center text-md font-montserrat font-extrabold ">Profile updated succesfully</h4>
           </div>
           <div v-show="submitClick">
             <h4 class="text-green-600 mb-4 ml-4 font-bold">Loading...</h4>
           </div>
           <div class="py-2 px-2 bg-red-200 border border-red-900 mt-3 mb-4 ml-4 rounded-lg" v-show="updateFailure">
-            <h4 class="text-red-950 text-center text-md">an error occured, please retry</h4>
+            <h4 class="text-red-950 text-center text-md font-montserrat font-extrabold">an error occured, please retry</h4>
           </div>
-          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm" @click="completeProfile(); submitHandler()"  >Submit</button>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm" @click="completeProfile(); submitHandler()">Submit</button>
        
         </form>
       </div>
@@ -70,7 +70,7 @@ export default {
     },
     methods : { 
         submitHandler() { 
-          this.submitClick = !this.submitClick
+          //this.submitClick = !this.submitClick
         },
         handleUploadProfileImage() { 
           this.profileImage = this.$refs.profileImageInput.files[0]
@@ -87,6 +87,7 @@ export default {
 
         try  {
           const token = localStorage.getItem('token');
+          this.submitClick = true
           const response = await axios.put('https://nse-backend-production.up.railway.app/api/update-profile', formData,  { headers : { 'Content-Type' : 'multipart/formData','Authorization' : `Bearer ${token}`}})
           if (response.status === 200){
             this.updateSucess = true,
@@ -99,11 +100,15 @@ export default {
             )
              
           }
-          // else if(response.status === 400){
-          //   this.updateFailure = true
-          // }
+          else{
+             this.updateFailure = true
+          }
         }catch(error) { 
+          this.updateFailure = true
+          this.submitClick = false
           console.log(error)
+        }finally{
+          this.submitClick = false
         }
        }
      }
