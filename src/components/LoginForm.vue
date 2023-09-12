@@ -3,7 +3,7 @@
     <div class="bg-image min-h-200 flex justify-center items-center">
       <SignupForm v-show="showSignup" @showLoginForm="showSignUp"></SignupForm>
       <div class="flex justify-center pt-3 lg:pt-12 pb-72 " v-show="showLogin">
-
+      <form>
         <div class="bg-white p-2 border rounded-md">
           <div class="flex flex-col px-4 py-4 items-center w-86 lg:w-100 h-64 pt-14 border border-orange-900 rounded-md">
             <label class="font-serif text-lg lg:text-2xl mb-2 text-green-800"><b>NSE-Oluyole</b> Member Login</label>
@@ -18,10 +18,12 @@
             <button
               class="font-pop border py-2 px-16 text-sm rounded-sm bg-green-500 text-white mt-4 hover:bg-white hover:border hover:border-green-900 hover:text-green-600 rounded-e-full rounded-s-full"
               @click="login">
-              Login
+              <h3 v-show="logintag">Login</h3>
+              <h3 v-show="!logintag">Loading...</h3>
             </button>
           </div>
         </div>
+      </form>
       </div>
     </div>
   </div>
@@ -46,6 +48,7 @@ export default {
       showSignup: false,
       showLogin: true,
       wrongCredentials: false,
+      logintag : true,
     };
   },
   methods: {
@@ -59,6 +62,7 @@ export default {
       this.showLogin = !this.showLogin
     },
     async login() {
+      this.logintag = false
   const login_data = {
     nse_number: this.username,
   };
@@ -69,7 +73,7 @@ export default {
         'Content-Type': 'application/json' // Adjust if needed
       }
     });
-
+`       `
     if (response.status === 200) {
           const token = response.data.token;
           localStorage.setItem('token', token)
@@ -82,23 +86,6 @@ export default {
           console.log('else block')
           this.$router.push('/find-employees')
         }
-      // // Check the response data before accessing it
-      // if (response.status === 200) {
-        
-      //   const token = response.data.token;
-      //   localStorage.setItem('token', token);
-      //   console.log(response.data.data.fullname)
-      //   if (response.data.data.fullname != '') { 
-      //     console.log('fullname', response.data.data.fullname)
-      //     this.$router.push('/find-employees')
-      //   }
-      //   else{
-      //   this.$router.push('/update-profile');
-      //   }
-      // } else {
-      //   this.wrongCredentials = true;
-      //   alert("Invalid credentials");
-      // }
     }
     else {
       console.log('Response with unexpected status:', response);
