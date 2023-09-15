@@ -17,7 +17,7 @@
 
             <button
               class="font-pop border py-2 px-16 text-sm rounded-sm bg-green-500 text-white mt-4 hover:bg-white hover:border hover:border-green-900 hover:text-green-600 rounded-e-full rounded-s-full"
-              @click="login">
+              @click="login($event)">
               <h3 v-show="logintag">Login</h3>
               <h3 v-show="!logintag">Loading...</h3>
             </button>
@@ -61,7 +61,8 @@ export default {
       this.showSignup = !this.showSignup;
       this.showLogin = !this.showLogin
     },
-    async login() {
+    async login(event) {
+      event.preventDefault();
       this.logintag = false
   const login_data = {
     nse_number: this.username,
@@ -82,7 +83,6 @@ export default {
           this.$router.push('/update-profile')
         }
         else { 
-          
           console.log('else block')
           this.$router.push('/find-employees')
         }
@@ -96,11 +96,14 @@ export default {
     if (error.response && error.response.status === 422) {
       // Handle validation errors
       this.wrongCredentials = true 
+      this.logintag = true
+
       console.log('Validation Errors:', error.response.data);
       this.validationErrors = error.response.data.errors;
     } else {
       // Handle other errors
       this.wrongCredentials = true
+      this.logintag = true
       console.error('Error:', error);
     // alert("An error occurred");
     }
