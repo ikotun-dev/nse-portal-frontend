@@ -1,8 +1,8 @@
 {
-  "homepage": "http://ikotun-dev.github.io/nse-portal-frontend/",
+  "homepage": "http://ikotun-dev.github.io/",
   "name": "nse-portal",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
